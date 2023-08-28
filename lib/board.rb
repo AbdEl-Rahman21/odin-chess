@@ -26,10 +26,13 @@ class Board
   end
 
   def print_board(pieces)
+    system('clear')
+
     i = 0
 
     (1..8).each do |number|
       print "#{number}\s"
+
       8.times do
         print_tile(i, pieces)
 
