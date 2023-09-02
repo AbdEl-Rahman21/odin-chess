@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative '../lib/knight'
+require_relative '../../lib/pieces/knight'
 
 describe Knight do
   describe '#possible_moves' do

@@ -1,15 +1,11 @@
 # frozen_string_literal: true
 
+require_relative './player'
 require 'rainbow'
 
-class Human
-  def initialize(color)
-    @name = ''
-    @color = color
-  end
-
-  def get_name
-    print "Player 1 (#{@color == :w ? 'White' : 'Black'}), enter your name: "
+class Human < Player
+  def get_name(number)
+    print "Player #{number} (#{@color == :w ? 'White' : 'Black'}), enter your name: "
 
     @name = gets.chomp
   end

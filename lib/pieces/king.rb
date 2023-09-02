@@ -4,6 +4,7 @@ require_relative './piece'
 
 class King < Piece
   @@TRANSITIONS = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1, -1], [1, 0], [1, 1]].freeze
+  @first_move = true
 
   def possible_moves
     @@TRANSITIONS.each do |transition|
