@@ -28,53 +28,60 @@ class Board
   def print_board(pieces)
     system('clear')
 
-    i = 0
+    puts "\s\s\sa\s\sb\s\sc\s\sd\s\se\s\sf\s\sg\s\sh"
 
-    (1..8).each do |number|
-      print "#{number}\s"
-
-      8.times do
-        print_tile(i, pieces)
-
-        i += 1
-      end
-
-      print "\n"
-    end
+    print_tiles(pieces)
 
     puts "\s\s\sa\s\sb\s\sc\s\sd\s\se\s\sf\s\sg\s\sh"
   end
 
-  def print_tile(index, pieces)
+  def print_tiles(pieces)
+    i = 0
+
+    (1..8).reverse_each do |number|
+      print "#{number}\s"
+
+      8.times do
+        print_single_tile(i, pieces)
+
+        i += 1
+      end
+
+      print "\s#{number}\n"
+    end
+  end
+
+  def print_single_tile(index, pieces)
     if @tiles[index].sum.even?
-      print Rainbow("\s#{tile_status(pieces)}\s").bg(:green)
+      print Rainbow("\s#{tile_status(index, pieces)}").bg(:green)
+      print Rainbow("\s").bg(:green)
     else
-      print Rainbow("\s#{tile_status(pieces)}\s").bg(:white)
+      print Rainbow("\s#{tile_status(index, pieces)}").bg(:snow)
+      print Rainbow("\s").bg(:snow)
     end
   end
 
   def tile_status(index, pieces)
     pieces.each do |piece|
-      return piece_color if piece.coordinates == @tiles[index]
+      return piece_color(piece) if piece.coordinates == @tiles[index]
     end
 
     "\s"
   end
 
   def piece_color(piece)
-    case piece.class
-    when Pawn
-      piece.color == :w ? "\u2659" : "\u265F"
-    when Rook
-      piece.color == :w ? "\u2656" : "\u265C"
-    when Knight
-      piece.color == :w ? "\u2658" : "\u265E"
-    when Bishop
-      piece.color == :w ? "\u2657" : "\u265D"
-    when Queen
-      piece.color == :w ? "\u2655" : "\u265B"
-    when King
-      piece.color == :w ? "\u2654" : "\u265A"
+    if piece.instance_of?(Pawn)
+      piece.color == :w ? Rainbow("\u2659").color(:black) : "\u265F"
+    elsif piece.instance_of?(Rook)
+      piece.color == :w ? Rainbow("\u2656").color(:black) : "\u265C"
+    elsif piece.instance_of?(Knight)
+      piece.color == :w ? Rainbow("\u2658").color(:black) : "\u265E"
+    elsif piece.instance_of?(Bishop)
+      piece.color == :w ? Rainbow("\u2657").color(:black) : "\u265D"
+    elsif piece.instance_of?(Queen)
+      piece.color == :w ? Rainbow("\u2655").color(:black) : "\u265B"
+    elsif piece.instance_of?(King)
+      piece.color == :w ? Rainbow("\u2654").color(:black) : "\u265A"
     end
   end
 end
