@@ -3,13 +3,21 @@
 require_relative './piece'
 
 class Knight < Piece
-  @@TRANSITIONS = [[-2, -1], [-2, 1], [-1, -2], [-1, 2], [1, -2], [1, 2], [2, -1], [2, 1]].freeze
+  TRANSITIONS = [[-2, -1], [-2, 1], [-1, -2], [-1, 2], [1, -2], [1, 2], [2, -1], [2, 1]].freeze
 
-  def possible_moves
-    @@TRANSITIONS.each do |transition|
+  def update_moves(pieces)
+    @moves = []
+
+    TRANSITIONS.each do |transition|
       move = [@coordinates[0] + transition[0], @coordinates[1] + transition[1]]
 
-      @moves.push(move.dup) unless move.any? { |e| e <= 0 } || move.any? { |e| e > 8 } # or occupied
+      get_moves(pieces, move)
+
+      @moves.uniq!
     end
+  end
+
+  def get_moves(pieces, move)
+    @moves.push(move.dup) unless move.any? { |e| e <= 0 || e > 8 } || move_blocked?(pieces, move)
   end
 end

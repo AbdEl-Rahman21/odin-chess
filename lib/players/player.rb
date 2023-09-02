@@ -8,11 +8,13 @@ require_relative '../pieces/queen'
 require_relative '../pieces/rook'
 
 class Player
+  attr_reader :name, :color, :in_check, :pieces
+
   def initialize(color)
     @name = ''
     @color = color
     @in_check = false
-    @piece = []
+    @pieces = []
   end
 
   def create_pieces

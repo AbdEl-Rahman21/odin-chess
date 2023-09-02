@@ -5,3 +5,4 @@ AllCops:
 Metrics/BlockLength:
   Exclude:
     - 'spec/*'
+    - 'spec/pieces_spec/*'
