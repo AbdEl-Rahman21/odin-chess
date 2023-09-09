@@ -10,39 +10,31 @@ class Board
   end
 
   def generate_tiles
-    i = 0
-
-    8.times do
-      j = 0
-
-      8.times do
-        @tiles.push([8 - i, 1 + j])
-
-        j += 1
+    (1..8).reverse_each do |y|
+      (1..8).each do |x|
+        @tiles.push([x, y])
       end
-
-      i += 1
     end
+
+    @tiles.uniq!
   end
 
-  def print_board(pieces)
-    system('clear')
-
+  def print_board(pieces, piece_to_move)
     puts "\s\s\sa\s\sb\s\sc\s\sd\s\se\s\sf\s\sg\s\sh"
 
-    print_tiles(pieces)
+    print_tiles(pieces, piece_to_move)
 
     puts "\s\s\sa\s\sb\s\sc\s\sd\s\se\s\sf\s\sg\s\sh"
   end
 
-  def print_tiles(pieces)
+  def print_tiles(pieces, piece_to_move)
     i = 0
 
     (1..8).reverse_each do |number|
       print "#{number}\s"
 
       8.times do
-        print_single_tile(i, pieces)
+        print_tile(i, pieces, piece_to_move)
 
         i += 1
       end
@@ -51,20 +43,38 @@ class Board
     end
   end
 
-  def print_single_tile(index, pieces)
-    if @tiles[index].sum.even?
-      print Rainbow("\s#{tile_status(index, pieces)}").bg(:green)
-      print Rainbow("\s").bg(:green)
-    else
-      print Rainbow("\s#{tile_status(index, pieces)}").bg(:snow)
-      print Rainbow("\s").bg(:snow)
-    end
+  def print_tile(index, pieces, piece_to_move)
+    symbol = tile_status(index, pieces, piece_to_move)
+    color = tile_color(index, pieces, piece_to_move)
+
+    print_tile_helper(color, symbol)
   end
 
-  def tile_status(index, pieces)
+  def print_tile_helper(color, symbol)
+    print Rainbow("\s#{symbol}").bg(color)
+    print Rainbow("\s").bg(color)
+  end
+
+  def tile_color(index, pieces, piece_to_move)
+    unless piece_to_move == ''
+      pieces.each do |piece|
+        return :crimson if piece.coordinates == @tiles[index] && piece_to_move.moves.include?(piece.coordinates)
+      end
+    end
+
+    return :green if @tiles[index].sum.even?
+
+    :snow
+  end
+
+  def tile_status(index, pieces, piece_to_move)
     pieces.each do |piece|
       return piece_color(piece) if piece.coordinates == @tiles[index]
     end
+
+    return "\s" if piece_to_move == ''
+
+    return Rainbow("\u25CF").color(:crimson) if piece_to_move.moves.include?(@tiles[index])
 
     "\s"
   end
