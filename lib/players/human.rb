@@ -5,14 +5,14 @@ require 'rainbow'
 
 class Human < Player
   def get_name(number)
-    print "Player #{number} (#{@color == :w ? 'White' : 'Black'}), enter your name: "
+    print "Player #{number} (#{print_color}), enter your name: "
 
     @name = gets.chomp
   end
 
   def get_choice(step)
     loop do
-      print "#{@name} (#{@color == :w ? 'White' : 'Black'}), "
+      print "#{@name} (#{print_color}), "
 
       print_step(step)
 
@@ -28,7 +28,7 @@ class Human < Player
     if step == 1
       print 'enter piece to move: '
     else
-      print 'enter piece to: '
+      print 'move piece to: '
     end
   end
 
