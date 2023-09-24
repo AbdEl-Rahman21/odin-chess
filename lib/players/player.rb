@@ -13,7 +13,6 @@ class Player
   def initialize(color)
     @name = ''
     @color = color
-    @in_check = false
     @pieces = []
   end
 

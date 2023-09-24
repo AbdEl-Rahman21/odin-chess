@@ -24,9 +24,9 @@ class Piece
     false
   end
 
-  def move_piece(move)
+  def move_piece(move, test = false)
     @coordinates = move
 
-    @first_move = false
+    @first_move = false unless test
   end
 end

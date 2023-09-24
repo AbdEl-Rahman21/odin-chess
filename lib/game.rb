@@ -2,24 +2,22 @@
 
 require_relative './board'
 require_relative './display'
+require_relative './engine'
 
-require_relative './pieces/bishop'
-require_relative './pieces/king'
-require_relative './pieces/knight'
-require_relative './pieces/pawn'
-require_relative './pieces/queen'
-require_relative './pieces/rook'
-
-require_relative './players/player'
 require_relative './players/human'
 require_relative './players/computer'
+
+require 'rainbow'
 
 class Game
   def initialize
     @players = [Human.new(:w), Human.new(:b)]
-    @board = Board.new
+    @engine = Engine.new
     @turn_counter = 0
-    @burner_player = Player.new(:a)
+  end
+
+  def all_pieces
+    @players[0].pieces.union(@players[1].pieces)
   end
 
   def create_players
@@ -31,97 +29,52 @@ class Game
     end
   end
 
+  def update_all_pieces
+    @players.each do |player|
+      @engine.update_player_moves(player, all_pieces)
+    end
+  end
+
   def play
     loop do
-      turn_order
+      update_all_pieces
 
-      # break if game_over?
+      temp = if @turn_counter.even?
+               prepare(@players[0], @players[1])
+             else
+               prepare(@players[1], @players[0])
+             end
+
+      return temp unless temp.nil?
 
       @turn_counter += 1
     end
-
-    # determine_winner
   end
 
-  def turn_order
-    @turn_counter.even? ? play_turn(@players[0], @players[1]) : play_turn(@players[1], @players[0])
+  def prepare(player, enemy)
+    enemy = @engine.filter_moves(player, enemy, all_pieces)
+
+    game_status = game_over?(player, enemy)
+
+    return game_status unless game_status == false
+
+    play_turn(player, enemy)
+
+    nil
   end
 
   def play_turn(player, enemy)
-    update_player_moves(player)
-    update_player_moves(enemy)
+    @engine.create_board(player, enemy, all_pieces)
 
-    create_board(player, enemy)
+    piece = get_valid_piece(player)
 
-    filter_moves(player, enemy)
-
-    piece = get_valid_pieces(player)
-
-    create_board(player, enemy, piece)
+    @engine.create_board(player, enemy, all_pieces, piece)
 
     move = get_valid_move(player, piece)
 
-    update_pieces(player, enemy, piece, move)
-  end
+    @engine.update_pieces(player, enemy, piece, move)
 
-  def create_board(player, enemy, piece = '')
-    system('clear')
-
-    @board.print_board(all_pieces, piece)
-
-    puts Rainbow("Warning! #{player.print_color} is in check.").color(:red) if check?(player, enemy)
-  end
-
-  def all_pieces
-    @players[0].pieces.union(@players[1].pieces)
-  end
-
-  def update_player_moves(player)
-    pieces = all_pieces
-
-    player.pieces.each do |piece|
-      piece.update_player_moves(pieces)
-    end
-  end
-
-  def filter_moves(player, enemy)
-    player.pieces.each do |piece|
-      piece.moves.filter! do |move|
-        filter_moves_helper(player, enemy, piece, move)
-      end
-    end
-  end
-
-  def filter_moves_helper(player, enemy, piece, move)
-    current_coord = piece.coordinates
-
-    piece.move_piece(move)
-
-    clone_player(enemy)
-
-    update_player_moves(@burner_player)
-
-    good_move = check?(player, @burner_player)
-
-    piece.move_piece(current_coord)
-
-    !good_move
-  end
-
-  def clone_player(player)
-    player.pieces.each_with_index do |piece, i|
-      @burner_player.pieces[i] = piece.class.new(piece.coordinates, piece.color)
-    end
-
-    update_player_moves(@burner_player)
-  end
-
-  def check?(player, enemy)
-    king = player.pieces.last.coordinates
-
-    enemy.pieces.each { |piece| return true if piece.moves.include?(king) }
-
-    false
+    @engine.update_counters(all_pieces)
   end
 
   def get_valid_piece(player)
@@ -150,25 +103,21 @@ class Game
     end
   end
 
-  def update_pieces(player, enemy, piece_to_move, move)
-    enemy.pieces.each do |piece|
-      next unless move == piece.coordinates
+  def game_over?(player, enemy)
+    return 'CM' if @engine.checkmate?(player, enemy)
 
-      enemy.pieces.delete(piece)
+    return 'SM' if @engine.stalemate?(player, enemy)
 
-      break
-    end
+    return 'DP' if @engine.dead_position?(all_pieces)
 
-    player.pieces.each do |piece|
-      next unless piece_to_move == piece
+    return 'FFR' if @engine.fivefold_repetition?(all_pieces)
 
-      piece.move_piece(move)
+    return '75' if @engine.seventy_five_move_rule?
 
-      break
-    end
+    false
   end
 end
 
 game = Game.new
 game.create_players
-game.play
+p game.play
