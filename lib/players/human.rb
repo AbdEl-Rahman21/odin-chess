@@ -4,6 +4,8 @@ require_relative './player'
 require 'rainbow'
 
 class Human < Player
+  COMMANDS = ['save', 'back', '0-0', '0-0-0', 'resign'].freeze
+
   def get_name(number)
     print "Player #{number} (#{print_color}), enter your name: "
 
@@ -16,12 +18,19 @@ class Human < Player
 
       print_step(step)
 
-      choice = gets.chomp
+      choice = gets.chomp.downcase
 
-      return choice if choice.length == 2 && ('a'..'h').include?(choice[0]) && ('1'..'8').include?(choice[1])
+      return choice if valid_choice?(choice)
 
       print_error_massage
     end
+  end
+
+  def valid_choice?(choice)
+    return true if (choice.length == 2 && ('a'..'h').include?(choice[0]) && ('1'..'8').include?(choice[1])) ||
+                   COMMANDS.include?(choice)
+
+    false
   end
 
   def print_step(step)

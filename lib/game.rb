@@ -64,13 +64,19 @@ class Game
   end
 
   def play_turn(player, enemy)
-    @engine.create_board(player, enemy, all_pieces)
+    move = ''
 
-    piece = get_valid_piece(player)
+    loop do
+      @engine.create_board(player, enemy, all_pieces)
 
-    @engine.create_board(player, enemy, all_pieces, piece)
+      piece = get_valid_piece(player)
 
-    move = get_valid_move(player, piece)
+      @engine.create_board(player, enemy, all_pieces, piece)
+
+      move = get_valid_move(player, piece)
+
+      break unless move == false
+    end
 
     @engine.update_pieces(player, enemy, piece, move)
 
@@ -91,9 +97,10 @@ class Game
   end
 
   def get_valid_move(player, piece)
-    # back
     loop do
       choice = player.get_choice(2)
+
+      return false if choice == 'back'
 
       coord = [choice[0].ord - 96, choice[1].to_i]
 
