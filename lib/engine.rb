@@ -11,7 +11,7 @@ require_relative './players/human'
 require_relative './players/computer'
 
 require 'rainbow'
-require 'pry-byebug'
+
 class Engine
   def initialize
     @counter75 = 0
@@ -38,7 +38,11 @@ class Engine
 
     player.pieces.each do |piece|
       piece.moves.filter! do |move|
-        filter_moves_helper(player, enemy, pieces, piece, move)
+        p = filter_moves_helper(player, enemy, pieces, piece, move)
+
+        enemy = Marshal.load(temp)
+
+        p
       end
     end
 
@@ -47,6 +51,8 @@ class Engine
 
   def filter_moves_helper(player, enemy, pieces, piece, move)
     current_coord = piece.coordinates
+
+    update_enemy_pieces(enemy, move, true)
 
     piece.move_piece(move, true)
 
@@ -74,16 +80,26 @@ class Engine
   end
 
   def update_pieces(player, enemy, piece_to_move, move)
+    update_player_pieces(player, piece_to_move, move)
+
+    update_enemy_pieces(enemy, move)
+  end
+
+  def update_enemy_pieces(enemy, move, test = false)
     enemy.pieces.each do |piece|
       next unless move == piece.coordinates
 
       enemy.pieces.delete(piece)
 
-      @counter75 = 0
+      @counter75 = 0 unless test
 
       break
     end
 
+    enemy
+  end
+
+  def update_player_pieces(player, piece_to_move, move)
     player.pieces.each do |piece|
       next unless piece_to_move == piece
 
@@ -134,7 +150,7 @@ class Engine
       counter += 1 if same_board?(board, pieces)
     end
 
-    return true if counter == 5
+    return true if counter == 4
 
     false
   end
