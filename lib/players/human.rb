@@ -4,7 +4,7 @@ require_relative './player'
 require 'rainbow'
 
 class Human < Player
-  COMMANDS = ['save', 'back', '0-0', '0-0-0', 'resign'].freeze
+  COMMANDS = %w[save back resign].freeze
 
   def get_name(number)
     print "Player #{number} (#{print_color}), enter your name: "

@@ -34,9 +34,9 @@ class Game
       @engine.update_player_moves(player, all_pieces)
     end
 
-    # @players.each do |player|
-    # player.last.castling(all_pieces)
-    # end
+    @players.each do |player|
+      player.pieces.last.castling(all_pieces)
+    end
   end
 
   def play

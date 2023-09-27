@@ -100,6 +100,12 @@ class Engine
   end
 
   def update_player_pieces(player, piece_to_move, move)
+    if piece_to_move.instance_of?(King) && (piece_to_move.coordinates[0] - move[0]).abs == 2
+      player = castle(player, move)
+
+      return
+    end
+
     player.pieces.each do |piece|
       next unless piece_to_move == piece
 
@@ -109,6 +115,28 @@ class Engine
 
       break
     end
+  end
+
+  def castle(player, move) # send to rook
+    player.pieces.last.move_piece(move)
+
+    king = player.pieces.last.coordinates
+
+    player.pieces.each do |piece|
+      next unless piece.instance_of?(Rook)
+
+      if (king[0] - piece.coordinates[0]).abs == 1
+        piece.move_piece([6, piece.coordinates[1]])
+      elsif (king[0] - piece.coordinates[0]).abs == 2
+        piece.move_piece([4, piece.coordinates[1]])
+      else
+        next
+      end
+
+      break
+    end
+
+    player
   end
 
   def checkmate?(player, enemy)

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Piece
-  attr_reader :coordinates, :color, :moves
+  attr_reader :coordinates, :color, :moves, :first_move
 
   def initialize(coordinates, color)
     @coordinates = coordinates
