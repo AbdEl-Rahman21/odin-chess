@@ -2,6 +2,7 @@
 
 require_relative './piece'
 
+# Class for the Pawn piece
 class Pawn < Piece
   TRANSITIONS = [[-1, 1], [0, 2], [0, 1], [1, 1], [-1, -1], [0, -2], [0, -1], [1, -1]].freeze
 
@@ -14,23 +15,19 @@ class Pawn < Piece
       move = [@coordinates[0] + transition[0], @coordinates[1] + transition[1]]
 
       get_moves(pieces, move, transition)
-
-      @moves.uniq!
     end
   end
 
   def skip?(transition)
-    if (transition[1].abs == 2 && !@first_move) || (transition[1].negative? && @color == :w) || (transition[1].positive? && @color == :b)
-      return true
-    end
+    return true if (transition[1].abs == 2 && !@first_move) || (transition[1].negative? && @color == :w) ||
+                   (transition[1].positive? && @color == :b)
 
     false
   end
 
   def get_moves(pieces, move, transition)
-    return if move.any?(&:zero?) || move.any? { |e| e > 8 } || move_blocked?(pieces, move, transition)
-
-    @moves.push(move.dup)
+    @moves.push(move.dup) unless move.any?(&:zero?) || move.any? { |e| e > 8 } ||
+                                 move_blocked?(pieces, move, transition)
   end
 
   def move_blocked?(pieces, move, transition)

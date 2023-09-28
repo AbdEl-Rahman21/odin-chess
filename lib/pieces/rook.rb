@@ -2,6 +2,7 @@
 
 require_relative './piece'
 
+# Class for the Rook piece
 class Rook < Piece
   TRANSITIONS = [[-1, 0], [0, -1], [0, 1], [1, 0]].freeze
 
@@ -12,8 +13,6 @@ class Rook < Piece
       move = @coordinates.dup
 
       get_moves(pieces, move, transition)
-
-      @moves.uniq!
     end
   end
 

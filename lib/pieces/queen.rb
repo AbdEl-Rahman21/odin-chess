@@ -2,6 +2,7 @@
 
 require_relative './piece'
 
+# Class for the Queen piece
 class Queen < Piece
   TRANSITIONS = [[-1, -1], [-1, 0], [-1, 1], [0, -1], [0, 1], [1, -1], [1, 0], [1, 1]].freeze
 
@@ -12,8 +13,6 @@ class Queen < Piece
       move = @coordinates.dup
 
       get_moves(pieces, move, transition)
-
-      @moves.uniq!
     end
   end
 

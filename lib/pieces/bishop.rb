@@ -2,6 +2,7 @@
 
 require_relative './piece'
 
+# Class for the Bishop piece
 class Bishop < Piece
   TRANSITIONS = [[-1, -1], [-1, 1], [1, -1], [1, 1]].freeze
 
@@ -12,8 +13,6 @@ class Bishop < Piece
       move = @coordinates.dup
 
       get_moves(pieces, move, transition)
-
-      @moves.uniq!
     end
   end
 

@@ -2,6 +2,7 @@
 
 require_relative './piece'
 
+# Class for the Knight piece
 class Knight < Piece
   TRANSITIONS = [[-2, -1], [-2, 1], [-1, -2], [-1, 2], [1, -2], [1, 2], [2, -1], [2, 1]].freeze
 
@@ -12,8 +13,6 @@ class Knight < Piece
       move = [@coordinates[0] + transition[0], @coordinates[1] + transition[1]]
 
       get_moves(pieces, move)
-
-      @moves.uniq!
     end
   end
 

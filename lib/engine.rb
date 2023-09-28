@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+require 'rainbow'
+
+require_relative './board'
+
 require_relative './pieces/bishop'
 require_relative './pieces/king'
 require_relative './pieces/knight'
@@ -7,11 +11,9 @@ require_relative './pieces/pawn'
 require_relative './pieces/queen'
 require_relative './pieces/rook'
 
-require_relative './players/human'
-require_relative './players/computer'
+require_relative './players/player'
 
-require 'rainbow'
-
+# Helper class for Game class
 class Engine
   def initialize
     @counter75 = 0
@@ -20,55 +22,45 @@ class Engine
   end
 
   def create_board(player, enemy, pieces, piece = '')
-    # system('clear')
-
     @board.print_board(pieces, piece)
 
-    puts Rainbow("Warning! #{player.print_color} is in check.").color(:red) if check?(player, enemy)
+    # rubocop:disable Layout/LineLength
+    puts Rainbow("Warning! #{player.print_color} is in check.").color(:red) if check?(player.pieces.last.coordinates, enemy)
+    # rubocop:enable Layout/LineLength
   end
 
   def update_player_moves(player, pieces)
-    player.pieces.each do |piece|
-      piece.update_moves(pieces)
-    end
+    player.pieces.each { |piece| piece.update_moves(pieces) }
   end
 
-  def filter_moves(player, enemy, pieces)
-    temp = Marshal.dump(enemy)
-
-    player.pieces.each do |piece|
-      piece.moves.filter! do |move|
-        p = filter_moves_helper(player, enemy, pieces, piece, move)
-
-        enemy = Marshal.load(temp)
-
-        p
-      end
-    end
-
-    enemy = Marshal.load(temp)
+  def filter_moves(player, enemy_copy, pieces)
+    # rubocop:disable Layout/LineLength
+    player.pieces.each { |piece| piece.moves.filter! { |move| filter_moves_helper(player, enemy_copy, pieces, piece, move) } }
+    # rubocop:enable Layout/LineLength
   end
 
-  def filter_moves_helper(player, enemy, pieces, piece, move)
+  def filter_moves_helper(player, enemy_copy, pieces, piece, move)
     current_coord = piece.coordinates
 
-    update_enemy_pieces(enemy, move, true)
+    # rubocop:disable Security/MarshalLoad
+    enemy = Marshal.load(enemy_copy)
+    # rubocop:enable Security/MarshalLoad
 
-    piece.move_piece(move, true)
+    update_enemy_pieces(enemy, move, test: true)
+
+    piece.move_piece(move, test: true)
 
     update_player_moves(enemy, pieces)
 
-    good_move = check?(player, enemy)
+    good_move = check?(player.pieces.last.coordinates, enemy)
 
-    piece.move_piece(current_coord, true)
+    piece.move_piece(current_coord, test: true)
 
     !good_move
   end
 
-  def check?(player, enemy)
-    king = player.pieces.last.coordinates
-
-    enemy.pieces.each { |piece| return true if piece.moves.include?(king) }
+  def check?(player_king, enemy)
+    enemy.pieces.each { |piece| return true if piece.moves.include?(player_king) }
 
     false
   end
@@ -85,7 +77,7 @@ class Engine
     update_enemy_pieces(enemy, move)
   end
 
-  def update_enemy_pieces(enemy, move, test = false)
+  def update_enemy_pieces(enemy, move, test: false)
     enemy.pieces.each do |piece|
       next unless move == piece.coordinates
 
@@ -95,16 +87,10 @@ class Engine
 
       break
     end
-
-    enemy
   end
 
   def update_player_pieces(player, piece_to_move, move)
-    if piece_to_move.instance_of?(King) && (piece_to_move.coordinates[0] - move[0]).abs == 2
-      player = castle(player, move)
-
-      return
-    end
+    castle(player, move) if piece_to_move.instance_of?(King) && (piece_to_move.coordinates[0] - move[0]).abs == 2
 
     player.pieces.each do |piece|
       next unless piece_to_move == piece
@@ -117,50 +103,47 @@ class Engine
     end
   end
 
-  def castle(player, move) # send to rook
-    player.pieces.last.move_piece(move)
+  def castle(player, move)
+    player.pieces.each { |piece| break if piece.instance_of?(Rook) && castle_helper(piece, move) }
+  end
 
-    king = player.pieces.last.coordinates
-
-    player.pieces.each do |piece|
-      next unless piece.instance_of?(Rook)
-
-      if (king[0] - piece.coordinates[0]).abs == 1
-        piece.move_piece([6, piece.coordinates[1]])
-      elsif (king[0] - piece.coordinates[0]).abs == 2
-        piece.move_piece([4, piece.coordinates[1]])
-      else
-        next
-      end
-
-      break
+  def castle_helper(piece, move)
+    if piece.coordinates[0] - move[0] == 1
+      piece.move_piece([6, piece.coordinates[1]])
+    elsif move[0] - piece.coordinates[0] == 2
+      piece.move_piece([4, piece.coordinates[1]])
+    else
+      return false
     end
 
-    player
+    true
   end
 
   def checkmate?(player, enemy)
-    return true if player.pieces.all? { |piece| piece.moves.empty? } && check?(player, enemy)
+    return true if player.pieces.all? { |piece| piece.moves.empty? } && check?(player.pieces.last.coordinates, enemy)
 
     false
   end
 
   def stalemate?(player, enemy)
-    return true if player.pieces.all? { |piece| piece.moves.empty? } && !check?(player, enemy)
+    return true if player.pieces.all? { |piece| piece.moves.empty? } && !check?(player.pieces.last.coordinates, enemy)
 
     false
   end
 
   def dead_position?(pieces)
     pieces.each do |piece|
-      if piece.instance_of?(Rook) || piece.instance_of?(Queen) || (piece.instance_of?(Pawn) && !piece.moves.empty?)
-        return false
-      end
+      # rubocop:disable Layout/LineLength
+      return false if piece.instance_of?(Rook) || piece.instance_of?(Queen) || (piece.instance_of?(Pawn) && !piece.moves.empty?)
+      # rubocop:enable Layout/LineLength
     end
 
     dead_position_helper?(pieces)
   end
 
+  # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/PerceivedComplexity
+  # rubocop:disable Metrics/CyclomaticComplexity
   def dead_position_helper?(pieces)
     return true if pieces.count { |piece| piece.instance_of?(Bishop) && piece.coordinates.sum.even? } == 2 ||
                    pieces.count { |piece| piece.instance_of?(Bishop) && piece.coordinates.sum.odd? } == 2
@@ -170,23 +153,20 @@ class Engine
 
     true
   end
+  # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Metrics/PerceivedComplexity
+  # rubocop:enable Metrics/CyclomaticComplexity
 
   def fivefold_repetition?(pieces)
-    counter = 0
-
-    @board_history.each do |board|
-      counter += 1 if same_board?(board, pieces)
-    end
-
-    return true if counter == 4
+    return true if @board_history.count { |board| same_board?(board, pieces) } == 4
 
     false
   end
 
   def same_board?(board, pieces)
-    Marshal.load(board).each_with_index do |piece, i|
-      return false unless piece.moves == pieces[i].moves
-    end
+    # rubocop:disable Security/MarshalLoad
+    Marshal.load(board).each_with_index { |piece, i| return false unless piece.moves == pieces[i].moves }
+    # rubocop:enable Security/MarshalLoad
 
     true
   end

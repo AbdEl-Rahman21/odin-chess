@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Superclass for chess pieces
 class Piece
   attr_reader :coordinates, :color, :moves, :first_move
 
@@ -24,7 +25,7 @@ class Piece
     false
   end
 
-  def move_piece(move, test = false)
+  def move_piece(move, test: false)
     @coordinates = move
 
     @first_move = false unless test

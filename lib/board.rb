@@ -2,6 +2,14 @@
 
 require 'rainbow'
 
+require_relative './pieces/bishop'
+require_relative './pieces/king'
+require_relative './pieces/knight'
+require_relative './pieces/pawn'
+require_relative './pieces/queen'
+require_relative './pieces/rook'
+
+# Class for the chess board
 class Board
   def initialize
     @tiles = []
@@ -10,16 +18,12 @@ class Board
   end
 
   def generate_tiles
-    (1..8).reverse_each do |y|
-      (1..8).each do |x|
-        @tiles.push([x, y])
-      end
-    end
-
-    @tiles.uniq!
+    (1..8).reverse_each { |y| (1..8).each { |x| @tiles.push([x, y]) } }
   end
 
   def print_board(pieces, piece_to_move)
+    # system('clear')
+
     puts "\s\s\sa\s\sb\s\sc\s\sd\s\se\s\sf\s\sg\s\sh"
 
     print_tiles(pieces, piece_to_move)
@@ -68,9 +72,7 @@ class Board
   end
 
   def tile_status(index, pieces, piece_to_move)
-    pieces.each do |piece|
-      return piece_color(piece) if piece.coordinates == @tiles[index]
-    end
+    pieces.each { |piece| return piece_color(piece) if piece.coordinates == @tiles[index] }
 
     return "\s" if piece_to_move == ''
 
@@ -79,6 +81,10 @@ class Board
     "\s"
   end
 
+  # rubocop:disable Metrics/AbcSize
+  # rubocop:disable Metrics/MethodLength
+  # rubocop:disable Metrics/PerceivedComplexity
+  # rubocop:disable Metrics/CyclomaticComplexity
   def piece_color(piece)
     if piece.instance_of?(Pawn)
       piece.color == :w ? Rainbow("\u2659").color(:black) : "\u265F"
@@ -94,4 +100,8 @@ class Board
       piece.color == :w ? Rainbow("\u2654").color(:black) : "\u265A"
     end
   end
+  # rubocop:enable Metrics/AbcSize
+  # rubocop:enable Metrics/MethodLength
+  # rubocop:enable Metrics/PerceivedComplexity
+  # rubocop:enable Metrics/CyclomaticComplexity
 end
