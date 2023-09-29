@@ -29,12 +29,6 @@ class Board
     print_tiles(pieces, piece_to_move)
 
     puts "\s\s\sa\s\sb\s\sc\s\sd\s\se\s\sf\s\sg\s\sh"
-
-    if piece_to_move == ''
-      puts "\nCommands: save, resign.\n\n"
-    else
-      puts "\nCommands: back.\n\n"
-    end
   end
 
   def print_tiles(pieces, piece_to_move)

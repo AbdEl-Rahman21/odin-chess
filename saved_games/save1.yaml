@@ -1,0 +1,475 @@
+--- !ruby/object:Game
+players:
+- !ruby/object:Human
+  color: :w
+  pieces:
+  - !ruby/object:Pawn
+    coordinates:
+    - 1
+    - 2
+    color: :w
+    moves:
+    - - 1
+      - 3
+    - - 1
+      - 4
+    first_move: true
+    jump_move: false
+  - !ruby/object:Pawn
+    coordinates:
+    - 4
+    - 4
+    color: :w
+    moves:
+    - - 4
+      - 5
+    first_move: false
+    jump_move: false
+  - !ruby/object:Pawn
+    coordinates:
+    - 5
+    - 4
+    color: :w
+    moves:
+    - - 5
+      - 5
+    first_move: false
+    jump_move: false
+  - !ruby/object:Pawn
+    coordinates:
+    - 6
+    - 2
+    color: :w
+    moves: []
+    first_move: true
+    jump_move: false
+  - !ruby/object:Pawn
+    coordinates:
+    - 7
+    - 2
+    color: :w
+    moves:
+    - - 7
+      - 3
+    - - 7
+      - 4
+    first_move: true
+    jump_move: false
+  - !ruby/object:Pawn
+    coordinates:
+    - 8
+    - 2
+    color: :w
+    moves:
+    - - 8
+      - 3
+    - - 8
+      - 4
+    first_move: true
+    jump_move: false
+  - !ruby/object:Rook
+    coordinates:
+    - 1
+    - 1
+    color: :w
+    moves:
+    - - 2
+      - 1
+    - - 3
+      - 1
+    - - 4
+      - 1
+    first_move: true
+  - !ruby/object:Queen
+    coordinates:
+    - 4
+    - 2
+    color: :w
+    moves:
+    - - 3
+      - 1
+    - - 3
+      - 2
+    - - 2
+      - 2
+    - - 3
+      - 3
+    - - 2
+      - 4
+    - - 1
+      - 5
+    - - 4
+      - 1
+    - - 4
+      - 3
+    - - 5
+      - 2
+    - - 5
+      - 3
+    - - 6
+      - 4
+    - - 7
+      - 5
+    - - 8
+      - 6
+    first_move: false
+  - !ruby/object:Rook
+    coordinates:
+    - 8
+    - 1
+    color: :w
+    moves:
+    - - 7
+      - 1
+    first_move: true
+  - !ruby/object:Knight
+    coordinates:
+    - 6
+    - 3
+    color: :w
+    moves:
+    - - 5
+      - 5
+    - - 7
+      - 1
+    - - 7
+      - 5
+    - - 8
+      - 4
+    first_move: false
+  - !ruby/object:Bishop
+    coordinates:
+    - 6
+    - 1
+    color: :w
+    moves:
+    - - 5
+      - 2
+    - - 4
+      - 3
+    - - 3
+      - 4
+    - - 2
+      - 5
+    - - 1
+      - 6
+    first_move: true
+  - !ruby/object:King
+    coordinates:
+    - 5
+    - 1
+    color: :w
+    moves:
+    - - 4
+      - 1
+    - - 5
+      - 2
+    - - 3
+      - 1
+    first_move: true
+- !ruby/object:Human
+  color: :b
+  pieces:
+  - !ruby/object:Pawn
+    coordinates:
+    - 1
+    - 7
+    color: :b
+    moves:
+    - - 1
+      - 6
+    - - 1
+      - 5
+    first_move: true
+    jump_move: false
+  - !ruby/object:Pawn
+    coordinates:
+    - 2
+    - 7
+    color: :b
+    moves:
+    - - 2
+      - 6
+    - - 2
+      - 5
+    first_move: true
+    jump_move: false
+  - !ruby/object:Pawn
+    coordinates:
+    - 5
+    - 6
+    color: :b
+    moves:
+    - - 5
+      - 5
+    first_move: false
+    jump_move: false
+  - !ruby/object:Pawn
+    coordinates:
+    - 6
+    - 7
+    color: :b
+    moves:
+    - - 6
+      - 6
+    - - 6
+      - 5
+    first_move: true
+    jump_move: false
+  - !ruby/object:Pawn
+    coordinates:
+    - 7
+    - 7
+    color: :b
+    moves:
+    - - 7
+      - 6
+    - - 7
+      - 5
+    first_move: true
+    jump_move: false
+  - !ruby/object:Pawn
+    coordinates:
+    - 8
+    - 7
+    color: :b
+    moves:
+    - - 8
+      - 6
+    - - 8
+      - 5
+    first_move: true
+    jump_move: false
+  - !ruby/object:Rook
+    coordinates:
+    - 1
+    - 8
+    color: :b
+    moves: []
+    first_move: true
+  - !ruby/object:Knight
+    coordinates:
+    - 2
+    - 8
+    color: :b
+    moves:
+    - - 1
+      - 6
+    - - 3
+      - 6
+    - - 4
+      - 7
+    first_move: true
+  - !ruby/object:Bishop
+    coordinates:
+    - 3
+    - 8
+    color: :b
+    moves:
+    - - 4
+      - 7
+    first_move: true
+  - !ruby/object:Queen
+    coordinates:
+    - 4
+    - 8
+    color: :b
+    moves:
+    - - 3
+      - 7
+    - - 2
+      - 6
+    - - 1
+      - 5
+    - - 4
+      - 7
+    - - 4
+      - 6
+    - - 4
+      - 5
+    - - 4
+      - 4
+    - - 5
+      - 7
+    - - 6
+      - 6
+    - - 7
+      - 5
+    - - 8
+      - 4
+    - - 5
+      - 8
+    first_move: true
+  - !ruby/object:Rook
+    coordinates:
+    - 6
+    - 8
+    color: :b
+    moves:
+    - - 5
+      - 8
+    first_move: false
+  - !ruby/object:King
+    coordinates:
+    - 7
+    - 8
+    color: :b
+    moves:
+    - - 8
+      - 8
+    first_move: false
+engine: !ruby/object:Engine
+  counter75: 2
+  board_history:
+  - "\x04\b[%o:\tPawn\n:\x11@coordinates[\ai\x06i\a:\v@color:\x06w:\v@moves[\a[\ai\x06i\b[\ai\x06i\t:\x10@first_moveT:\x0F@jump_moveFo;\0\n;\x06[\ai\ai\a;\a;\b;\t[\a[\ai\ai\b[\ai\ai\t;\nT;\vFo;\0\n;\x06[\ai\bi\a;\a;\b;\t[\a[\ai\bi\b[\ai\bi\t;\nT;\vFo;\0\n;\x06[\ai\ti\t;\a;\b;\t[\a[\ai\ti\b[\ai\ti\t;\nF;\vTo;\0\n;\x06[\ai\ni\a;\a;\b;\t[\a[\ai\ni\b[\ai\ni\t;\nT;\vFo;\0\n;\x06[\ai\vi\a;\a;\b;\t[\a[\ai\vi\b[\ai\vi\t;\nT;\vFo;\0\n;\x06[\ai\fi\a;\a;\b;\t[\a[\ai\fi\b[\ai\fi\t;\nT;\vFo;\0\n;\x06[\ai\ri\a;\a;\b;\t[\a[\ai\ri\b[\ai\ri\t;\nT;\vFo:\tRook\t;\x06[\ai\x06i\x06;\a;\b;\t[\0;\nTo:\vKnight\t;\x06[\ai\ai\x06;\a;\b;\t[\a[\ai\x06i\b[\ai\bi\b;\nTo:\vBishop\t;\x06[\ai\bi\x06;\a;\b;\t[\0;\nTo:\nQueen\t;\x06[\ai\ti\x06;\a;\b;\t[\0;\nTo;\f\t;\x06[\ai\ri\x06;\a;\b;\t[\0;\nTo;\r\t;\x06[\ai\fi\x06;\a;\b;\t[\a[\ai\vi\b[\ai\ri\b;\nTo;\x0E\t;\x06[\ai\vi\x06;\a;\b;\t[\0;\nTo:\tKing\t;\x06[\ai\ni\x06;\a;\b;\t[\0;\nTo;\0\n;\x06[\ai\x06i\f;\a:\x06b;\t[\a[\ai\x06i\v[\ai\x06i\n;\nT;\vFo;\0\n;\x06[\ai\ai\f;\a;\x11;\t[\a[\ai\ai\v[\ai\ai\n;\nT;\vFo;\0\n;\x06[\ai\bi\f;\a;\x11;\t[\a[\ai\bi\v[\ai\bi\n;\nT;\vFo;\0\n;\x06[\ai\ti\f;\a;\x11;\t[\a[\ai\ti\v[\ai\ti\n;\nT;\vFo;\0\n;\x06[\ai\ni\f;\a;\x11;\t[\a[\ai\ni\v[\ai\ni\n;\nT;\vFo;\0\n;\x06[\ai\vi\f;\a;\x11;\t[\a[\ai\vi\v[\ai\vi\n;\nT;\vFo;\0\n;\x06[\ai\fi\f;\a;\x11;\t[\a[\ai\fi\v[\ai\fi\n;\nT;\vFo;\0\n;\x06[\ai\ri\f;\a;\x11;\t[\a[\ai\ri\v[\ai\ri\n;\nT;\vFo;\f\t;\x06[\ai\x06i\r;\a;\x11;\t[\0;\nTo;\r\t;\x06[\ai\ai\r;\a;\x11;\t[\a[\ai\x06i\v[\ai\bi\v;\nTo;\x0E\t;\x06[\ai\bi\r;\a;\x11;\t[\0;\nTo;\x0F\t;\x06[\ai\ti\r;\a;\x11;\t[\0;\nTo;\f\t;\x06[\ai\ri\r;\a;\x11;\t[\0;\nTo;\r\t;\x06[\ai\fi\r;\a;\x11;\t[\a[\ai\vi\v[\ai\ri\v;\nTo;\x0E\t;\x06[\ai\vi\r;\a;\x11;\t[\0;\nTo;\x10\t;\x06[\ai\ni\r;\a;\x11;\t[\0;\nT"
+  - "\x04\b[%o:\tPawn\n:\x11@coordinates[\ai\x06i\f:\v@color:\x06b:\v@moves[\a[\ai\x06i\v[\ai\x06i\n:\x10@first_moveT:\x0F@jump_moveFo;\0\n;\x06[\ai\ai\f;\a;\b;\t[\a[\ai\ai\v[\ai\ai\n;\nT;\vFo;\0\n;\x06[\ai\bi\f;\a;\b;\t[\a[\ai\bi\v[\ai\bi\n;\nT;\vFo;\0\n;\x06[\ai\ti\n;\a;\b;\t[\a[\ai\ti\v[\ai\ti\n;\nF;\vTo;\0\n;\x06[\ai\ni\f;\a;\b;\t[\a[\ai\ni\v[\ai\ni\n;\nT;\vFo;\0\n;\x06[\ai\vi\f;\a;\b;\t[\a[\ai\vi\v[\ai\vi\n;\nT;\vFo;\0\n;\x06[\ai\fi\f;\a;\b;\t[\a[\ai\fi\v[\ai\fi\n;\nT;\vFo;\0\n;\x06[\ai\ri\f;\a;\b;\t[\a[\ai\ri\v[\ai\ri\n;\nT;\vFo:\tRook\t;\x06[\ai\x06i\r;\a;\b;\t[\0;\nTo:\vKnight\t;\x06[\ai\ai\r;\a;\b;\t[\a[\ai\x06i\v[\ai\bi\v;\nTo:\vBishop\t;\x06[\ai\bi\r;\a;\b;\t[\0;\nTo:\nQueen\t;\x06[\ai\ti\r;\a;\b;\t[\0;\nTo;\f\t;\x06[\ai\ri\r;\a;\b;\t[\0;\nTo;\r\t;\x06[\ai\fi\r;\a;\b;\t[\a[\ai\vi\v[\ai\ri\v;\nTo;\x0E\t;\x06[\ai\vi\r;\a;\b;\t[\0;\nTo:\tKing\t;\x06[\ai\ni\r;\a;\b;\t[\0;\nTo;\0\n;\x06[\ai\x06i\a;\a:\x06w;\t[\a[\ai\x06i\b[\ai\x06i\t;\nT;\vFo;\0\n;\x06[\ai\ai\a;\a;\x11;\t[\a[\ai\ai\b[\ai\ai\t;\nT;\vFo;\0\n;\x06[\ai\bi\a;\a;\x11;\t[\a[\ai\bi\b[\ai\bi\t;\nT;\vFo;\0\n;\x06[\ai\ti\t;\a;\x11;\t[\x06[\ai\ti\n;\nF;\vTo;\0\n;\x06[\ai\ni\a;\a;\x11;\t[\a[\ai\ni\b[\ai\ni\t;\nT;\vFo;\0\n;\x06[\ai\vi\a;\a;\x11;\t[\a[\ai\vi\b[\ai\vi\t;\nT;\vFo;\0\n;\x06[\ai\fi\a;\a;\x11;\t[\a[\ai\fi\b[\ai\fi\t;\nT;\vFo;\0\n;\x06[\ai\ri\a;\a;\x11;\t[\a[\ai\ri\b[\ai\ri\t;\nT;\vFo;\f\t;\x06[\ai\x06i\x06;\a;\x11;\t[\0;\nTo;\r\t;\x06[\ai\ai\x06;\a;\x11;\t[\b[\ai\x06i\b[\ai\bi\b[\ai\ti\a;\nTo;\x0E\t;\x06[\ai\bi\x06;\a;\x11;\t[\n[\ai\ti\a[\ai\ni\b[\ai\vi\t[\ai\fi\n[\ai\ri\v;\nTo;\x0F\t;\x06[\ai\ti\x06;\a;\x11;\t[\a[\ai\ti\a[\ai\ti\b;\nTo;\f\t;\x06[\ai\ri\x06;\a;\x11;\t[\0;\nTo;\r\t;\x06[\ai\fi\x06;\a;\x11;\t[\a[\ai\vi\b[\ai\ri\b;\nTo;\x0E\t;\x06[\ai\vi\x06;\a;\x11;\t[\0;\nTo;\x10\t;\x06[\ai\ni\x06;\a;\x11;\t[\x06[\ai\ti\a;\nT"
+  - "\x04\b[%o:\tPawn\n:\x11@coordinates[\ai\x06i\a:\v@color:\x06w:\v@moves[\a[\ai\x06i\b[\ai\x06i\t:\x10@first_moveT:\x0F@jump_moveFo;\0\n;\x06[\ai\ai\a;\a;\b;\t[\a[\ai\ai\b[\ai\ai\t;\nT;\vFo;\0\n;\x06[\ai\bi\t;\a;\b;\t[\a[\ai\bi\b[\ai\bi\t;\nF;\vTo;\0\n;\x06[\ai\ti\t;\a;\b;\t[\0;\nF;\vFo;\0\n;\x06[\ai\ni\a;\a;\b;\t[\a[\ai\ni\b[\ai\ni\t;\nT;\vFo;\0\n;\x06[\ai\vi\a;\a;\b;\t[\a[\ai\vi\b[\ai\vi\t;\nT;\vFo;\0\n;\x06[\ai\fi\a;\a;\b;\t[\a[\ai\fi\b[\ai\fi\t;\nT;\vFo;\0\n;\x06[\ai\ri\a;\a;\b;\t[\a[\ai\ri\b[\ai\ri\t;\nT;\vFo:\tRook\t;\x06[\ai\x06i\x06;\a;\b;\t[\0;\nTo:\vKnight\t;\x06[\ai\ai\x06;\a;\b;\t[\b[\ai\x06i\b[\ai\bi\b[\ai\ti\a;\nTo:\vBishop\t;\x06[\ai\bi\x06;\a;\b;\t[\n[\ai\ti\a[\ai\ni\b[\ai\vi\t[\ai\fi\n[\ai\ri\v;\nTo:\nQueen\t;\x06[\ai\ti\x06;\a;\b;\t[\a[\ai\ti\a[\ai\ti\b;\nTo;\f\t;\x06[\ai\ri\x06;\a;\b;\t[\0;\nTo;\r\t;\x06[\ai\fi\x06;\a;\b;\t[\a[\ai\vi\b[\ai\ri\b;\nTo;\x0E\t;\x06[\ai\vi\x06;\a;\b;\t[\0;\nTo:\tKing\t;\x06[\ai\ni\x06;\a;\b;\t[\x06[\ai\ti\a;\nTo;\0\n;\x06[\ai\x06i\f;\a:\x06b;\t[\a[\ai\x06i\v[\ai\x06i\n;\nT;\vFo;\0\n;\x06[\ai\ai\f;\a;\x11;\t[\a[\ai\ai\v[\ai\ai\n;\nT;\vFo;\0\n;\x06[\ai\bi\f;\a;\x11;\t[\a[\ai\bi\v[\ai\bi\n;\nT;\vFo;\0\n;\x06[\ai\ti\n;\a;\x11;\t[\0;\nF;\vTo;\0\n;\x06[\ai\ni\f;\a;\x11;\t[\a[\ai\ni\v[\ai\ni\n;\nT;\vFo;\0\n;\x06[\ai\vi\f;\a;\x11;\t[\a[\ai\vi\v[\ai\vi\n;\nT;\vFo;\0\n;\x06[\ai\fi\f;\a;\x11;\t[\a[\ai\fi\v[\ai\fi\n;\nT;\vFo;\0\n;\x06[\ai\ri\f;\a;\x11;\t[\a[\ai\ri\v[\ai\ri\n;\nT;\vFo;\f\t;\x06[\ai\x06i\r;\a;\x11;\t[\0;\nTo;\r\t;\x06[\ai\ai\r;\a;\x11;\t[\b[\ai\x06i\v[\ai\bi\v[\ai\ti\f;\nTo;\x0E\t;\x06[\ai\bi\r;\a;\x11;\t[\n[\ai\ti\f[\ai\ni\v[\ai\vi\n[\ai\fi\t[\ai\ri\b;\nTo;\x0F\t;\x06[\ai\ti\r;\a;\x11;\t[\a[\ai\ti\f[\ai\ti\v;\nTo;\f\t;\x06[\ai\ri\r;\a;\x11;\t[\0;\nTo;\r\t;\x06[\ai\fi\r;\a;\x11;\t[\a[\ai\vi\v[\ai\ri\v;\nTo;\x0E\t;\x06[\ai\vi\r;\a;\x11;\t[\0;\nTo;\x10\t;\x06[\ai\ni\r;\a;\x11;\t[\x06[\ai\ti\f;\nT"
+  - "\x04\b[%o:\tPawn\n:\x11@coordinates[\ai\x06i\f:\v@color:\x06b:\v@moves[\a[\ai\x06i\v[\ai\x06i\n:\x10@first_moveT:\x0F@jump_moveFo;\0\n;\x06[\ai\ai\f;\a;\b;\t[\a[\ai\ai\v[\ai\ai\n;\nT;\vFo;\0\n;\x06[\ai\bi\f;\a;\b;\t[\a[\ai\bi\v[\ai\bi\n;\nT;\vFo;\0\n;\x06[\ai\ti\n;\a;\b;\t[\x06[\ai\bi\t;\nF;\vFo;\0\n;\x06[\ai\ni\v;\a;\b;\t[\a[\ai\ni\v[\ai\ni\n;\nF;\vFo;\0\n;\x06[\ai\vi\f;\a;\b;\t[\a[\ai\vi\v[\ai\vi\n;\nT;\vFo;\0\n;\x06[\ai\fi\f;\a;\b;\t[\a[\ai\fi\v[\ai\fi\n;\nT;\vFo;\0\n;\x06[\ai\ri\f;\a;\b;\t[\a[\ai\ri\v[\ai\ri\n;\nT;\vFo:\tRook\t;\x06[\ai\x06i\r;\a;\b;\t[\0;\nTo:\vKnight\t;\x06[\ai\ai\r;\a;\b;\t[\b[\ai\x06i\v[\ai\bi\v[\ai\ti\f;\nTo:\vBishop\t;\x06[\ai\bi\r;\a;\b;\t[\n[\ai\ti\f[\ai\ni\v[\ai\vi\n[\ai\fi\t[\ai\ri\b;\nTo:\nQueen\t;\x06[\ai\ti\r;\a;\b;\t[\a[\ai\ti\f[\ai\ti\v;\nTo;\f\t;\x06[\ai\ri\r;\a;\b;\t[\0;\nTo;\r\t;\x06[\ai\fi\r;\a;\b;\t[\a[\ai\vi\v[\ai\ri\v;\nTo;\x0E\t;\x06[\ai\vi\r;\a;\b;\t[\0;\nTo:\tKing\t;\x06[\ai\ni\r;\a;\b;\t[\x06[\ai\ti\f;\nTo;\0\n;\x06[\ai\x06i\a;\a:\x06w;\t[\a[\ai\x06i\b[\ai\x06i\t;\nT;\vFo;\0\n;\x06[\ai\ai\a;\a;\x11;\t[\a[\ai\ai\b[\ai\ai\t;\nT;\vFo;\0\n;\x06[\ai\bi\t;\a;\x11;\t[\a[\ai\bi\n[\ai\ti\n;\nF;\vTo;\0\n;\x06[\ai\ti\t;\a;\x11;\t[\0;\nF;\vFo;\0\n;\x06[\ai\ni\a;\a;\x11;\t[\a[\ai\ni\b[\ai\ni\t;\nT;\vFo;\0\n;\x06[\ai\vi\a;\a;\x11;\t[\a[\ai\vi\b[\ai\vi\t;\nT;\vFo;\0\n;\x06[\ai\fi\a;\a;\x11;\t[\a[\ai\fi\b[\ai\fi\t;\nT;\vFo;\0\n;\x06[\ai\ri\a;\a;\x11;\t[\a[\ai\ri\b[\ai\ri\t;\nT;\vFo;\f\t;\x06[\ai\x06i\x06;\a;\x11;\t[\0;\nTo;\r\t;\x06[\ai\ai\x06;\a;\x11;\t[\b[\ai\x06i\b[\ai\bi\b[\ai\ti\a;\nTo;\x0E\t;\x06[\ai\bi\x06;\a;\x11;\t[\n[\ai\ti\a[\ai\ni\b[\ai\vi\t[\ai\fi\n[\ai\ri\v;\nTo;\x0F\t;\x06[\ai\ti\x06;\a;\x11;\t[\n[\ai\bi\a[\ai\ai\b[\ai\x06i\t[\ai\ti\a[\ai\ti\b;\nTo;\f\t;\x06[\ai\ri\x06;\a;\x11;\t[\0;\nTo;\r\t;\x06[\ai\fi\x06;\a;\x11;\t[\a[\ai\vi\b[\ai\ri\b;\nTo;\x0E\t;\x06[\ai\vi\x06;\a;\x11;\t[\0;\nTo;\x10\t;\x06[\ai\ni\x06;\a;\x11;\t[\x06[\ai\ti\a;\nT"
+  - "\x04\b[%o:\tPawn\n:\x11@coordinates[\ai\x06i\a:\v@color:\x06w:\v@moves[\a[\ai\x06i\b[\ai\x06i\t:\x10@first_moveT:\x0F@jump_moveFo;\0\n;\x06[\ai\ai\a;\a;\b;\t[\a[\ai\ai\b[\ai\ai\t;\nT;\vFo;\0\n;\x06[\ai\bi\t;\a;\b;\t[\a[\ai\bi\n[\ai\ti\n;\nF;\vFo;\0\n;\x06[\ai\ti\t;\a;\b;\t[\0;\nF;\vFo;\0\n;\x06[\ai\ni\a;\a;\b;\t[\a[\ai\ni\b[\ai\ni\t;\nT;\vFo;\0\n;\x06[\ai\vi\a;\a;\b;\t[\a[\ai\vi\b[\ai\vi\t;\nT;\vFo;\0\n;\x06[\ai\fi\a;\a;\b;\t[\a[\ai\fi\b[\ai\fi\t;\nT;\vFo;\0\n;\x06[\ai\ri\a;\a;\b;\t[\a[\ai\ri\b[\ai\ri\t;\nT;\vFo:\tRook\t;\x06[\ai\x06i\x06;\a;\b;\t[\0;\nTo:\vKnight\t;\x06[\ai\ai\x06;\a;\b;\t[\b[\ai\x06i\b[\ai\bi\b[\ai\ti\a;\nTo:\vBishop\t;\x06[\ai\bi\x06;\a;\b;\t[\n[\ai\ti\a[\ai\ni\b[\ai\vi\t[\ai\fi\n[\ai\ri\v;\nTo:\nQueen\t;\x06[\ai\ti\x06;\a;\b;\t[\n[\ai\bi\a[\ai\ai\b[\ai\x06i\t[\ai\ti\a[\ai\ti\b;\nTo;\f\t;\x06[\ai\ri\x06;\a;\b;\t[\0;\nTo;\r\t;\x06[\ai\vi\b;\a;\b;\t[\a[\ai\vi\b[\ai\ri\b;\nFo;\x0E\t;\x06[\ai\vi\x06;\a;\b;\t[\0;\nTo:\tKing\t;\x06[\ai\ni\x06;\a;\b;\t[\x06[\ai\ti\a;\nTo;\0\n;\x06[\ai\x06i\f;\a:\x06b;\t[\a[\ai\x06i\v[\ai\x06i\n;\nT;\vFo;\0\n;\x06[\ai\ai\f;\a;\x11;\t[\a[\ai\ai\v[\ai\ai\n;\nT;\vFo;\0\n;\x06[\ai\bi\f;\a;\x11;\t[\a[\ai\bi\v[\ai\bi\n;\nT;\vFo;\0\n;\x06[\ai\ti\n;\a;\x11;\t[\x06[\ai\bi\t;\nF;\vFo;\0\n;\x06[\ai\ni\v;\a;\x11;\t[\x06[\ai\ni\n;\nF;\vFo;\0\n;\x06[\ai\vi\f;\a;\x11;\t[\a[\ai\vi\v[\ai\vi\n;\nT;\vFo;\0\n;\x06[\ai\fi\f;\a;\x11;\t[\a[\ai\fi\v[\ai\fi\n;\nT;\vFo;\0\n;\x06[\ai\ri\f;\a;\x11;\t[\a[\ai\ri\v[\ai\ri\n;\nT;\vFo;\f\t;\x06[\ai\x06i\r;\a;\x11;\t[\0;\nTo;\r\t;\x06[\ai\ai\r;\a;\x11;\t[\b[\ai\x06i\v[\ai\bi\v[\ai\ti\f;\nTo;\x0E\t;\x06[\ai\bi\r;\a;\x11;\t[\x06[\ai\ti\f;\nTo;\x0F\t;\x06[\ai\ti\r;\a;\x11;\t[\v[\ai\ti\f[\ai\ti\v[\ai\ni\f[\ai\vi\v[\ai\fi\n[\ai\ri\t;\nTo;\f\t;\x06[\ai\ri\r;\a;\x11;\t[\0;\nTo;\r\t;\x06[\ai\fi\r;\a;\x11;\t[\b[\ai\ni\f[\ai\vi\v[\ai\ri\v;\nTo;\x0E\t;\x06[\ai\vi\r;\a;\x11;\t[\n[\ai\ni\f[\ai\ti\v[\ai\bi\n[\ai\ai\t[\ai\x06i\b;\nTo;\x10\t;\x06[\ai\ni\r;\a;\x11;\t[\a[\ai\ti\f[\ai\ni\f;\nT"
+  - "\x04\b[%o:\tPawn\n:\x11@coordinates[\ai\x06i\f:\v@color:\x06b:\v@moves[\a[\ai\x06i\v[\ai\x06i\n:\x10@first_moveT:\x0F@jump_moveFo;\0\n;\x06[\ai\ai\f;\a;\b;\t[\a[\ai\ai\v[\ai\ai\n;\nT;\vFo;\0\n;\x06[\ai\bi\f;\a;\b;\t[\a[\ai\bi\v[\ai\bi\n;\nT;\vFo;\0\n;\x06[\ai\ti\n;\a;\b;\t[\x06[\ai\bi\t;\nF;\vFo;\0\n;\x06[\ai\ni\v;\a;\b;\t[\x06[\ai\ni\n;\nF;\vFo;\0\n;\x06[\ai\vi\f;\a;\b;\t[\a[\ai\vi\v[\ai\vi\n;\nT;\vFo;\0\n;\x06[\ai\fi\f;\a;\b;\t[\a[\ai\fi\v[\ai\fi\n;\nT;\vFo;\0\n;\x06[\ai\ri\f;\a;\b;\t[\a[\ai\ri\v[\ai\ri\n;\nT;\vFo:\tRook\t;\x06[\ai\x06i\r;\a;\b;\t[\0;\nTo:\vKnight\t;\x06[\ai\ai\r;\a;\b;\t[\b[\ai\x06i\v[\ai\bi\v[\ai\ti\f;\nTo:\vBishop\t;\x06[\ai\bi\r;\a;\b;\t[\x06[\ai\ti\f;\nTo:\nQueen\t;\x06[\ai\ti\r;\a;\b;\t[\v[\ai\ti\f[\ai\ti\v[\ai\ni\f[\ai\vi\v[\ai\fi\n[\ai\ri\t;\nTo;\f\t;\x06[\ai\ri\r;\a;\b;\t[\0;\nTo;\r\t;\x06[\ai\vi\v;\a;\b;\t[\b[\ai\ni\f[\ai\vi\v[\ai\ri\v;\nFo;\x0E\t;\x06[\ai\vi\r;\a;\b;\t[\n[\ai\ni\f[\ai\ti\v[\ai\bi\n[\ai\ai\t[\ai\x06i\b;\nTo:\tKing\t;\x06[\ai\ni\r;\a;\b;\t[\a[\ai\ti\f[\ai\ni\f;\nTo;\0\n;\x06[\ai\x06i\a;\a:\x06w;\t[\a[\ai\x06i\b[\ai\x06i\t;\nT;\vFo;\0\n;\x06[\ai\ai\a;\a;\x11;\t[\a[\ai\ai\b[\ai\ai\t;\nT;\vFo;\0\n;\x06[\ai\bi\t;\a;\x11;\t[\a[\ai\bi\n[\ai\ti\n;\nF;\vFo;\0\n;\x06[\ai\ti\t;\a;\x11;\t[\0;\nF;\vFo;\0\n;\x06[\ai\ni\a;\a;\x11;\t[\a[\ai\ni\b[\ai\ni\t;\nT;\vFo;\0\n;\x06[\ai\vi\a;\a;\x11;\t[\0;\nT;\vFo;\0\n;\x06[\ai\fi\a;\a;\x11;\t[\a[\ai\fi\b[\ai\fi\t;\nT;\vFo;\0\n;\x06[\ai\ri\a;\a;\x11;\t[\a[\ai\ri\b[\ai\ri\t;\nT;\vFo;\f\t;\x06[\ai\x06i\x06;\a;\x11;\t[\0;\nTo;\r\t;\x06[\ai\ai\x06;\a;\x11;\t[\b[\ai\x06i\b[\ai\bi\b[\ai\ti\a;\nTo;\x0E\t;\x06[\ai\bi\x06;\a;\x11;\t[\n[\ai\ti\a[\ai\ni\b[\ai\vi\t[\ai\fi\n[\ai\ri\v;\nTo;\x0F\t;\x06[\ai\ti\x06;\a;\x11;\t[\n[\ai\bi\a[\ai\ai\b[\ai\x06i\t[\ai\ti\a[\ai\ti\b;\nTo;\f\t;\x06[\ai\ri\x06;\a;\x11;\t[\x06[\ai\fi\x06;\nTo;\r\t;\x06[\ai\vi\b;\a;\x11;\t[\n[\ai\ti\a[\ai\ni\n[\ai\fi\x06[\ai\fi\n[\ai\ri\t;\nFo;\x0E\t;\x06[\ai\vi\x06;\a;\x11;\t[\0;\nTo;\x10\t;\x06[\ai\ni\x06;\a;\x11;\t[\x06[\ai\ti\a;\nT"
+  - "\x04\b[%o:\tPawn\n:\x11@coordinates[\ai\x06i\a:\v@color:\x06w:\v@moves[\a[\ai\x06i\b[\ai\x06i\t:\x10@first_moveT:\x0F@jump_moveFo;\0\n;\x06[\ai\ai\a;\a;\b;\t[\a[\ai\ai\b[\ai\ai\t;\nT;\vFo;\0\n;\x06[\ai\bi\t;\a;\b;\t[\a[\ai\bi\n[\ai\ti\n;\nF;\vFo;\0\n;\x06[\ai\ti\t;\a;\b;\t[\0;\nF;\vFo;\0\n;\x06[\ai\ni\a;\a;\b;\t[\a[\ai\ni\b[\ai\ni\t;\nT;\vFo;\0\n;\x06[\ai\vi\a;\a;\b;\t[\0;\nT;\vFo;\0\n;\x06[\ai\fi\a;\a;\b;\t[\a[\ai\fi\b[\ai\fi\t;\nT;\vFo;\0\n;\x06[\ai\ri\a;\a;\b;\t[\a[\ai\ri\b[\ai\ri\t;\nT;\vFo:\tRook\t;\x06[\ai\x06i\x06;\a;\b;\t[\0;\nTo:\vKnight\t;\x06[\ai\bi\b;\a;\b;\t[\b[\ai\x06i\b[\ai\bi\b[\ai\ti\a;\nFo:\vBishop\t;\x06[\ai\bi\x06;\a;\b;\t[\n[\ai\ti\a[\ai\ni\b[\ai\vi\t[\ai\fi\n[\ai\ri\v;\nTo:\nQueen\t;\x06[\ai\ti\x06;\a;\b;\t[\n[\ai\bi\a[\ai\ai\b[\ai\x06i\t[\ai\ti\a[\ai\ti\b;\nTo;\f\t;\x06[\ai\ri\x06;\a;\b;\t[\x06[\ai\fi\x06;\nTo;\r\t;\x06[\ai\vi\b;\a;\b;\t[\n[\ai\ti\a[\ai\ni\n[\ai\fi\x06[\ai\fi\n[\ai\ri\t;\nFo;\x0E\t;\x06[\ai\vi\x06;\a;\b;\t[\0;\nTo:\tKing\t;\x06[\ai\ni\x06;\a;\b;\t[\x06[\ai\ti\a;\nTo;\0\n;\x06[\ai\x06i\f;\a:\x06b;\t[\a[\ai\x06i\v[\ai\x06i\n;\nT;\vFo;\0\n;\x06[\ai\ai\f;\a;\x11;\t[\a[\ai\ai\v[\ai\ai\n;\nT;\vFo;\0\n;\x06[\ai\bi\f;\a;\x11;\t[\a[\ai\bi\v[\ai\bi\n;\nT;\vFo;\0\n;\x06[\ai\ti\n;\a;\x11;\t[\x06[\ai\bi\t;\nF;\vFo;\0\n;\x06[\ai\ni\v;\a;\x11;\t[\x06[\ai\ni\n;\nF;\vFo;\0\n;\x06[\ai\vi\f;\a;\x11;\t[\0;\nT;\vFo;\0\n;\x06[\ai\fi\f;\a;\x11;\t[\a[\ai\fi\v[\ai\fi\n;\nT;\vFo;\0\n;\x06[\ai\ri\f;\a;\x11;\t[\a[\ai\ri\v[\ai\ri\n;\nT;\vFo;\f\t;\x06[\ai\x06i\r;\a;\x11;\t[\0;\nTo;\r\t;\x06[\ai\ai\r;\a;\x11;\t[\b[\ai\x06i\v[\ai\bi\v[\ai\ti\f;\nTo;\x0E\t;\x06[\ai\bi\r;\a;\x11;\t[\x06[\ai\ti\f;\nTo;\x0F\t;\x06[\ai\ti\r;\a;\x11;\t[\b[\ai\ti\f[\ai\ti\v[\ai\ni\f;\nTo;\f\t;\x06[\ai\ri\r;\a;\x11;\t[\x06[\ai\fi\r;\nTo;\r\t;\x06[\ai\vi\v;\a;\x11;\t[\n[\ai\ti\f[\ai\ni\t[\ai\fi\t[\ai\fi\r[\ai\ri\n;\nFo;\x0E\t;\x06[\ai\vi\r;\a;\x11;\t[\n[\ai\ni\f[\ai\ti\v[\ai\bi\n[\ai\ai\t[\ai\x06i\b;\nTo;\x10\t;\x06[\ai\ni\r;\a;\x11;\t[\a[\ai\ti\f[\ai\ni\f;\nT"
+  - "\x04\b[%o:\tPawn\n:\x11@coordinates[\ai\x06i\f:\v@color:\x06b:\v@moves[\a[\ai\x06i\v[\ai\x06i\n:\x10@first_moveT:\x0F@jump_moveFo;\0\n;\x06[\ai\ai\f;\a;\b;\t[\a[\ai\ai\v[\ai\ai\n;\nT;\vFo;\0\n;\x06[\ai\bi\n;\a;\b;\t[\a[\ai\bi\v[\ai\bi\n;\nF;\vTo;\0\n;\x06[\ai\ti\n;\a;\b;\t[\x06[\ai\bi\t;\nF;\vFo;\0\n;\x06[\ai\ni\v;\a;\b;\t[\x06[\ai\ni\n;\nF;\vFo;\0\n;\x06[\ai\vi\f;\a;\b;\t[\0;\nT;\vFo;\0\n;\x06[\ai\fi\f;\a;\b;\t[\a[\ai\fi\v[\ai\fi\n;\nT;\vFo;\0\n;\x06[\ai\ri\f;\a;\b;\t[\a[\ai\ri\v[\ai\ri\n;\nT;\vFo:\tRook\t;\x06[\ai\x06i\r;\a;\b;\t[\0;\nTo:\vKnight\t;\x06[\ai\ai\r;\a;\b;\t[\b[\ai\x06i\v[\ai\bi\v[\ai\ti\f;\nTo:\vBishop\t;\x06[\ai\bi\r;\a;\b;\t[\x06[\ai\ti\f;\nTo:\nQueen\t;\x06[\ai\ti\r;\a;\b;\t[\b[\ai\ti\f[\ai\ti\v[\ai\ni\f;\nTo;\f\t;\x06[\ai\ri\r;\a;\b;\t[\x06[\ai\fi\r;\nTo;\r\t;\x06[\ai\vi\v;\a;\b;\t[\n[\ai\ti\f[\ai\ni\t[\ai\fi\t[\ai\fi\r[\ai\ri\n;\nFo;\x0E\t;\x06[\ai\vi\r;\a;\b;\t[\n[\ai\ni\f[\ai\ti\v[\ai\bi\n[\ai\ai\t[\ai\x06i\b;\nTo:\tKing\t;\x06[\ai\ni\r;\a;\b;\t[\a[\ai\ti\f[\ai\ni\f;\nTo;\0\n;\x06[\ai\x06i\a;\a:\x06w;\t[\a[\ai\x06i\b[\ai\x06i\t;\nT;\vFo;\0\n;\x06[\ai\ai\a;\a;\x11;\t[\a[\ai\ai\b[\ai\ai\t;\nT;\vFo;\0\n;\x06[\ai\bi\t;\a;\x11;\t[\a[\ai\bi\n[\ai\ti\n;\nF;\vFo;\0\n;\x06[\ai\ti\t;\a;\x11;\t[\0;\nF;\vFo;\0\n;\x06[\ai\ni\a;\a;\x11;\t[\a[\ai\ni\b[\ai\ni\t;\nT;\vFo;\0\n;\x06[\ai\vi\a;\a;\x11;\t[\0;\nT;\vFo;\0\n;\x06[\ai\fi\a;\a;\x11;\t[\a[\ai\fi\b[\ai\fi\t;\nT;\vFo;\0\n;\x06[\ai\ri\a;\a;\x11;\t[\a[\ai\ri\b[\ai\ri\t;\nT;\vFo;\f\t;\x06[\ai\x06i\x06;\a;\x11;\t[\x06[\ai\ai\x06;\nTo;\r\t;\x06[\ai\bi\b;\a;\x11;\t[\n[\ai\x06i\t[\ai\ai\x06[\ai\ai\n[\ai\ti\n[\ai\ni\t;\nFo;\x0E\t;\x06[\ai\bi\x06;\a;\x11;\t[\n[\ai\ti\a[\ai\ni\b[\ai\vi\t[\ai\fi\n[\ai\ri\v;\nTo;\x0F\t;\x06[\ai\ti\x06;\a;\x11;\t[\n[\ai\bi\a[\ai\ai\b[\ai\x06i\t[\ai\ti\a[\ai\ti\b;\nTo;\f\t;\x06[\ai\ri\x06;\a;\x11;\t[\x06[\ai\fi\x06;\nTo;\r\t;\x06[\ai\vi\b;\a;\x11;\t[\n[\ai\ti\a[\ai\ni\n[\ai\fi\x06[\ai\fi\n[\ai\ri\t;\nFo;\x0E\t;\x06[\ai\vi\x06;\a;\x11;\t[\0;\nTo;\x10\t;\x06[\ai\ni\x06;\a;\x11;\t[\x06[\ai\ti\a;\nT"
+  - "\x04\b[$o:\tPawn\n:\x11@coordinates[\ai\x06i\a:\v@color:\x06w:\v@moves[\a[\ai\x06i\b[\ai\x06i\t:\x10@first_moveT:\x0F@jump_moveFo;\0\n;\x06[\ai\ai\a;\a;\b;\t[\a[\ai\ai\b[\ai\ai\t;\nT;\vFo;\0\n;\x06[\ai\ti\n;\a;\b;\t[\x06[\ai\ti\n;\nF;\vFo;\0\n;\x06[\ai\ti\t;\a;\b;\t[\x06[\ai\bi\n;\nF;\vFo;\0\n;\x06[\ai\ni\a;\a;\b;\t[\a[\ai\ni\b[\ai\ni\t;\nT;\vFo;\0\n;\x06[\ai\vi\a;\a;\b;\t[\0;\nT;\vFo;\0\n;\x06[\ai\fi\a;\a;\b;\t[\a[\ai\fi\b[\ai\fi\t;\nT;\vFo;\0\n;\x06[\ai\ri\a;\a;\b;\t[\a[\ai\ri\b[\ai\ri\t;\nT;\vFo:\tRook\t;\x06[\ai\x06i\x06;\a;\b;\t[\x06[\ai\ai\x06;\nTo:\vKnight\t;\x06[\ai\bi\b;\a;\b;\t[\n[\ai\x06i\t[\ai\ai\x06[\ai\ai\n[\ai\ti\n[\ai\ni\t;\nFo:\vBishop\t;\x06[\ai\bi\x06;\a;\b;\t[\n[\ai\ti\a[\ai\ni\b[\ai\vi\t[\ai\fi\n[\ai\ri\v;\nTo:\nQueen\t;\x06[\ai\ti\x06;\a;\b;\t[\n[\ai\bi\a[\ai\ai\b[\ai\x06i\t[\ai\ti\a[\ai\ti\b;\nTo;\f\t;\x06[\ai\ri\x06;\a;\b;\t[\x06[\ai\fi\x06;\nTo;\r\t;\x06[\ai\vi\b;\a;\b;\t[\n[\ai\ti\a[\ai\ni\n[\ai\fi\x06[\ai\fi\n[\ai\ri\t;\nFo;\x0E\t;\x06[\ai\vi\x06;\a;\b;\t[\0;\nTo:\tKing\t;\x06[\ai\ni\x06;\a;\b;\t[\x06[\ai\ti\a;\nTo;\0\n;\x06[\ai\x06i\f;\a:\x06b;\t[\a[\ai\x06i\v[\ai\x06i\n;\nT;\vFo;\0\n;\x06[\ai\ai\f;\a;\x11;\t[\a[\ai\ai\v[\ai\ai\n;\nT;\vFo;\0\n;\x06[\ai\bi\n;\a;\x11;\t[\x06[\ai\ti\t;\nF;\vTo;\0\n;\x06[\ai\ni\v;\a;\x11;\t[\x06[\ai\ni\n;\nF;\vFo;\0\n;\x06[\ai\vi\f;\a;\x11;\t[\0;\nT;\vFo;\0\n;\x06[\ai\fi\f;\a;\x11;\t[\a[\ai\fi\v[\ai\fi\n;\nT;\vFo;\0\n;\x06[\ai\ri\f;\a;\x11;\t[\a[\ai\ri\v[\ai\ri\n;\nT;\vFo;\f\t;\x06[\ai\x06i\r;\a;\x11;\t[\0;\nTo;\r\t;\x06[\ai\ai\r;\a;\x11;\t[\b[\ai\x06i\v[\ai\bi\v[\ai\ti\f;\nTo;\x0E\t;\x06[\ai\bi\r;\a;\x11;\t[\x06[\ai\ti\f;\nTo;\x0F\t;\x06[\ai\ti\r;\a;\x11;\t[\v[\ai\bi\f[\ai\ai\v[\ai\x06i\n[\ai\ti\f[\ai\ti\v[\ai\ni\f;\nTo;\f\t;\x06[\ai\ri\r;\a;\x11;\t[\x06[\ai\fi\r;\nTo;\r\t;\x06[\ai\vi\v;\a;\x11;\t[\n[\ai\ti\f[\ai\ni\t[\ai\fi\t[\ai\fi\r[\ai\ri\n;\nFo;\x0E\t;\x06[\ai\vi\r;\a;\x11;\t[\a[\ai\ni\f[\ai\ti\v;\nTo;\x10\t;\x06[\ai\ni\r;\a;\x11;\t[\a[\ai\ti\f[\ai\ni\f;\nT"
+  - "\x04\b[#o:\tPawn\n:\x11@coordinates[\ai\x06i\f:\v@color:\x06b:\v@moves[\a[\ai\x06i\v[\ai\x06i\n:\x10@first_moveT:\x0F@jump_moveFo;\0\n;\x06[\ai\ai\f;\a;\b;\t[\a[\ai\ai\v[\ai\ai\n;\nT;\vFo;\0\n;\x06[\ai\bi\n;\a;\b;\t[\a[\ai\bi\t[\ai\ti\t;\nF;\vFo;\0\n;\x06[\ai\ni\v;\a;\b;\t[\a[\ai\ni\n[\ai\ti\n;\nF;\vFo;\0\n;\x06[\ai\vi\f;\a;\b;\t[\0;\nT;\vFo;\0\n;\x06[\ai\fi\f;\a;\b;\t[\a[\ai\fi\v[\ai\fi\n;\nT;\vFo;\0\n;\x06[\ai\ri\f;\a;\b;\t[\a[\ai\ri\v[\ai\ri\n;\nT;\vFo:\tRook\t;\x06[\ai\x06i\r;\a;\b;\t[\0;\nTo:\vKnight\t;\x06[\ai\ai\r;\a;\b;\t[\b[\ai\x06i\v[\ai\bi\v[\ai\ti\f;\nTo:\vBishop\t;\x06[\ai\bi\r;\a;\b;\t[\x06[\ai\ti\f;\nTo:\nQueen\t;\x06[\ai\ti\r;\a;\b;\t[\f[\ai\bi\f[\ai\ai\v[\ai\x06i\n[\ai\ti\f[\ai\ti\v[\ai\ti\n[\ai\ni\f;\nTo;\f\t;\x06[\ai\ri\r;\a;\b;\t[\x06[\ai\fi\r;\nTo;\r\t;\x06[\ai\ti\n;\a;\b;\t[\v[\ai\ti\n[\ai\ti\f[\ai\ni\t[\ai\fi\t[\ai\fi\r[\ai\ri\n;\nFo;\x0E\t;\x06[\ai\vi\r;\a;\b;\t[\a[\ai\ni\f[\ai\ti\v;\nTo:\tKing\t;\x06[\ai\ni\r;\a;\b;\t[\a[\ai\ti\f[\ai\ni\f;\nTo;\0\n;\x06[\ai\x06i\a;\a:\x06w;\t[\a[\ai\x06i\b[\ai\x06i\t;\nT;\vFo;\0\n;\x06[\ai\ai\a;\a;\x11;\t[\a[\ai\ai\b[\ai\ai\t;\nT;\vFo;\0\n;\x06[\ai\ti\t;\a;\x11;\t[\x06[\ai\bi\n;\nF;\vFo;\0\n;\x06[\ai\ni\a;\a;\x11;\t[\a[\ai\ni\b[\ai\ni\t;\nT;\vFo;\0\n;\x06[\ai\vi\a;\a;\x11;\t[\0;\nT;\vFo;\0\n;\x06[\ai\fi\a;\a;\x11;\t[\a[\ai\fi\b[\ai\fi\t;\nT;\vFo;\0\n;\x06[\ai\ri\a;\a;\x11;\t[\a[\ai\ri\b[\ai\ri\t;\nT;\vFo;\f\t;\x06[\ai\x06i\x06;\a;\x11;\t[\x06[\ai\ai\x06;\nTo;\r\t;\x06[\ai\bi\b;\a;\x11;\t[\t[\ai\x06i\t[\ai\ai\x06[\ai\ai\n[\ai\ni\t;\nFo;\x0E\t;\x06[\ai\bi\x06;\a;\x11;\t[\n[\ai\ti\a[\ai\ni\b[\ai\vi\t[\ai\fi\n[\ai\ri\v;\nTo;\x0F\t;\x06[\ai\ti\x06;\a;\x11;\t[\n[\ai\bi\a[\ai\ai\b[\ai\x06i\t[\ai\ti\a[\ai\ti\b;\nTo;\f\t;\x06[\ai\ri\x06;\a;\x11;\t[\x06[\ai\fi\x06;\nTo;\r\t;\x06[\ai\vi\b;\a;\x11;\t[\n[\ai\ti\a[\ai\ni\n[\ai\fi\x06[\ai\fi\n[\ai\ri\t;\nFo;\x0E\t;\x06[\ai\vi\x06;\a;\x11;\t[\0;\nTo;\x10\t;\x06[\ai\ni\x06;\a;\x11;\t[\x06[\ai\ti\a;\nT"
+  - "\x04\b[#o:\tPawn\n:\x11@coordinates[\ai\x06i\a:\v@color:\x06w:\v@moves[\a[\ai\x06i\b[\ai\x06i\t:\x10@first_moveT:\x0F@jump_moveFo;\0\n;\x06[\ai\ai\a;\a;\b;\t[\a[\ai\ai\b[\ai\ai\t;\nT;\vFo;\0\n;\x06[\ai\ti\t;\a;\b;\t[\x06[\ai\bi\n;\nF;\vFo;\0\n;\x06[\ai\ni\t;\a;\b;\t[\a[\ai\ni\b[\ai\ni\t;\nF;\vTo;\0\n;\x06[\ai\vi\a;\a;\b;\t[\0;\nT;\vFo;\0\n;\x06[\ai\fi\a;\a;\b;\t[\a[\ai\fi\b[\ai\fi\t;\nT;\vFo;\0\n;\x06[\ai\ri\a;\a;\b;\t[\a[\ai\ri\b[\ai\ri\t;\nT;\vFo:\tRook\t;\x06[\ai\x06i\x06;\a;\b;\t[\x06[\ai\ai\x06;\nTo:\vKnight\t;\x06[\ai\bi\b;\a;\b;\t[\n[\ai\x06i\t[\ai\ai\x06[\ai\ai\n[\ai\ti\n[\ai\ni\t;\nFo:\vBishop\t;\x06[\ai\bi\x06;\a;\b;\t[\n[\ai\ti\a[\ai\ni\b[\ai\vi\t[\ai\fi\n[\ai\ri\v;\nTo:\nQueen\t;\x06[\ai\ti\x06;\a;\b;\t[\n[\ai\bi\a[\ai\ai\b[\ai\x06i\t[\ai\ti\a[\ai\ti\b;\nTo;\f\t;\x06[\ai\ri\x06;\a;\b;\t[\x06[\ai\fi\x06;\nTo;\r\t;\x06[\ai\vi\b;\a;\b;\t[\n[\ai\ti\a[\ai\ni\n[\ai\fi\x06[\ai\fi\n[\ai\ri\t;\nFo;\x0E\t;\x06[\ai\vi\x06;\a;\b;\t[\0;\nTo:\tKing\t;\x06[\ai\ni\x06;\a;\b;\t[\x06[\ai\ti\a;\nTo;\0\n;\x06[\ai\x06i\f;\a:\x06b;\t[\a[\ai\x06i\v[\ai\x06i\n;\nT;\vFo;\0\n;\x06[\ai\ai\f;\a;\x11;\t[\a[\ai\ai\v[\ai\ai\n;\nT;\vFo;\0\n;\x06[\ai\bi\n;\a;\x11;\t[\a[\ai\bi\t[\ai\ti\t;\nF;\vFo;\0\n;\x06[\ai\ni\v;\a;\x11;\t[\x06[\ai\ni\n;\nF;\vFo;\0\n;\x06[\ai\vi\f;\a;\x11;\t[\a[\ai\vi\v[\ai\vi\n;\nT;\vFo;\0\n;\x06[\ai\fi\f;\a;\x11;\t[\a[\ai\fi\v[\ai\fi\n;\nT;\vFo;\0\n;\x06[\ai\ri\f;\a;\x11;\t[\a[\ai\ri\v[\ai\ri\n;\nT;\vFo;\f\t;\x06[\ai\x06i\r;\a;\x11;\t[\0;\nTo;\r\t;\x06[\ai\ai\r;\a;\x11;\t[\b[\ai\x06i\v[\ai\bi\v[\ai\ti\f;\nTo;\x0E\t;\x06[\ai\bi\r;\a;\x11;\t[\x06[\ai\ti\f;\nTo;\x0F\t;\x06[\ai\ti\r;\a;\x11;\t[\x0E[\ai\bi\f[\ai\ai\v[\ai\x06i\n[\ai\ti\f[\ai\ti\v[\ai\ni\f[\ai\vi\v[\ai\fi\n[\ai\ri\t;\nTo;\f\t;\x06[\ai\ri\r;\a;\x11;\t[\x06[\ai\fi\r;\nTo;\r\t;\x06[\ai\ti\n;\a;\x11;\t[\r[\ai\ai\t[\ai\ai\v[\ai\bi\b[\ai\bi\f[\ai\ni\b[\ai\ni\f[\ai\vi\t[\ai\vi\v;\nFo;\x0E\t;\x06[\ai\vi\r;\a;\x11;\t[\a[\ai\ni\f[\ai\ti\v;\nTo;\x10\t;\x06[\ai\ni\r;\a;\x11;\t[\a[\ai\ti\f[\ai\ni\f;\nT"
+  - "\x04\b[\"o:\tPawn\n:\x11@coordinates[\ai\x06i\f:\v@color:\x06b:\v@moves[\a[\ai\x06i\v[\ai\x06i\n:\x10@first_moveT:\x0F@jump_moveFo;\0\n;\x06[\ai\ai\f;\a;\b;\t[\a[\ai\ai\v[\ai\ai\n;\nT;\vFo;\0\n;\x06[\ai\bi\n;\a;\b;\t[\a[\ai\bi\t[\ai\ti\t;\nF;\vFo;\0\n;\x06[\ai\ni\v;\a;\b;\t[\x06[\ai\ni\n;\nF;\vFo;\0\n;\x06[\ai\vi\f;\a;\b;\t[\a[\ai\vi\v[\ai\vi\n;\nT;\vFo;\0\n;\x06[\ai\fi\f;\a;\b;\t[\a[\ai\fi\v[\ai\fi\n;\nT;\vFo;\0\n;\x06[\ai\ri\f;\a;\b;\t[\a[\ai\ri\v[\ai\ri\n;\nT;\vFo:\tRook\t;\x06[\ai\x06i\r;\a;\b;\t[\0;\nTo:\vKnight\t;\x06[\ai\ai\r;\a;\b;\t[\b[\ai\x06i\v[\ai\bi\v[\ai\ti\f;\nTo:\vBishop\t;\x06[\ai\bi\r;\a;\b;\t[\x06[\ai\ti\f;\nTo:\nQueen\t;\x06[\ai\ti\r;\a;\b;\t[\x0E[\ai\bi\f[\ai\ai\v[\ai\x06i\n[\ai\ti\f[\ai\ti\v[\ai\ni\f[\ai\vi\v[\ai\fi\n[\ai\ri\t;\nTo;\f\t;\x06[\ai\ri\r;\a;\b;\t[\x06[\ai\fi\r;\nTo;\r\t;\x06[\ai\bi\b;\a;\b;\t[\r[\ai\ai\t[\ai\ai\v[\ai\bi\b[\ai\bi\f[\ai\ni\b[\ai\ni\f[\ai\vi\t[\ai\vi\v;\nFo;\x0E\t;\x06[\ai\vi\r;\a;\b;\t[\a[\ai\ni\f[\ai\ti\v;\nTo:\tKing\t;\x06[\ai\ni\r;\a;\b;\t[\a[\ai\ti\f[\ai\ni\f;\nTo;\0\n;\x06[\ai\x06i\a;\a:\x06w;\t[\a[\ai\x06i\b[\ai\x06i\t;\nT;\vFo;\0\n;\x06[\ai\ai\a;\a;\x11;\t[\a[\ai\ai\b[\ai\ai\t;\nT;\vFo;\0\n;\x06[\ai\ti\t;\a;\x11;\t[\x06[\ai\bi\n;\nF;\vFo;\0\n;\x06[\ai\ni\t;\a;\x11;\t[\a[\ai\ni\n[\ai\ti\n;\nF;\vTo;\0\n;\x06[\ai\vi\a;\a;\x11;\t[\0;\nT;\vFo;\0\n;\x06[\ai\fi\a;\a;\x11;\t[\a[\ai\fi\b[\ai\fi\t;\nT;\vFo;\0\n;\x06[\ai\ri\a;\a;\x11;\t[\a[\ai\ri\b[\ai\ri\t;\nT;\vFo;\f\t;\x06[\ai\x06i\x06;\a;\x11;\t[\x06[\ai\ai\x06;\nTo;\x0E\t;\x06[\ai\bi\x06;\a;\x11;\t[\n[\ai\ti\a[\ai\ni\b[\ai\vi\t[\ai\fi\n[\ai\ri\v;\nTo;\x0F\t;\x06[\ai\ti\x06;\a;\x11;\t[\v[\ai\bi\a[\ai\ai\b[\ai\x06i\t[\ai\ti\a[\ai\ti\b[\ai\ni\a;\nTo;\f\t;\x06[\ai\ri\x06;\a;\x11;\t[\x06[\ai\fi\x06;\nTo;\r\t;\x06[\ai\vi\b;\a;\x11;\t[\n[\ai\ti\a[\ai\ni\n[\ai\fi\x06[\ai\fi\n[\ai\ri\t;\nFo;\x0E\t;\x06[\ai\vi\x06;\a;\x11;\t[\n[\ai\ni\a[\ai\ti\b[\ai\bi\t[\ai\ai\n[\ai\x06i\v;\nTo;\x10\t;\x06[\ai\ni\x06;\a;\x11;\t[\a[\ai\ti\a[\ai\ni\a;\nT"
+  - "\x04\b[!o:\tPawn\n:\x11@coordinates[\ai\x06i\a:\v@color:\x06w:\v@moves[\a[\ai\x06i\b[\ai\x06i\t:\x10@first_moveT:\x0F@jump_moveFo;\0\n;\x06[\ai\bi\b;\a;\b;\t[\b[\ai\ai\b[\ai\ai\t[\ai\bi\b;\nF;\vFo;\0\n;\x06[\ai\ti\t;\a;\b;\t[\a[\ai\ti\n[\ai\bi\n;\nF;\vFo;\0\n;\x06[\ai\ni\t;\a;\b;\t[\x06[\ai\ni\n;\nF;\vFo;\0\n;\x06[\ai\vi\a;\a;\b;\t[\0;\nT;\vFo;\0\n;\x06[\ai\fi\a;\a;\b;\t[\a[\ai\fi\b[\ai\fi\t;\nT;\vFo;\0\n;\x06[\ai\ri\a;\a;\b;\t[\a[\ai\ri\b[\ai\ri\t;\nT;\vFo:\tRook\t;\x06[\ai\x06i\x06;\a;\b;\t[\x06[\ai\ai\x06;\nTo:\vBishop\t;\x06[\ai\bi\x06;\a;\b;\t[\n[\ai\ti\a[\ai\ni\b[\ai\vi\t[\ai\fi\n[\ai\ri\v;\nTo:\nQueen\t;\x06[\ai\ti\x06;\a;\b;\t[\v[\ai\bi\a[\ai\ai\b[\ai\x06i\t[\ai\ti\a[\ai\ti\b[\ai\ni\a;\nTo;\f\t;\x06[\ai\ri\x06;\a;\b;\t[\x06[\ai\fi\x06;\nTo:\vKnight\t;\x06[\ai\vi\b;\a;\b;\t[\n[\ai\ti\a[\ai\ni\n[\ai\fi\x06[\ai\fi\n[\ai\ri\t;\nFo;\r\t;\x06[\ai\vi\x06;\a;\b;\t[\n[\ai\ni\a[\ai\ti\b[\ai\bi\t[\ai\ai\n[\ai\x06i\v;\nTo:\tKing\t;\x06[\ai\ni\x06;\a;\b;\t[\x06[\ai\ti\a;\nTo;\0\n;\x06[\ai\x06i\f;\a:\x06b;\t[\a[\ai\x06i\v[\ai\x06i\n;\nT;\vFo;\0\n;\x06[\ai\ai\f;\a;\x11;\t[\a[\ai\ai\v[\ai\ai\n;\nT;\vFo;\0\n;\x06[\ai\bi\n;\a;\x11;\t[\a[\ai\bi\t[\ai\ti\t;\nF;\vFo;\0\n;\x06[\ai\ni\v;\a;\x11;\t[\x06[\ai\ni\n;\nF;\vFo;\0\n;\x06[\ai\vi\f;\a;\x11;\t[\a[\ai\vi\v[\ai\vi\n;\nT;\vFo;\0\n;\x06[\ai\fi\f;\a;\x11;\t[\a[\ai\fi\v[\ai\fi\n;\nT;\vFo;\0\n;\x06[\ai\ri\f;\a;\x11;\t[\a[\ai\ri\v[\ai\ri\n;\nT;\vFo;\f\t;\x06[\ai\x06i\r;\a;\x11;\t[\0;\nTo;\x0F\t;\x06[\ai\ai\r;\a;\x11;\t[\b[\ai\x06i\v[\ai\bi\v[\ai\ti\f;\nTo;\r\t;\x06[\ai\bi\r;\a;\x11;\t[\x06[\ai\ti\f;\nTo;\x0E\t;\x06[\ai\ti\r;\a;\x11;\t[\x10[\ai\bi\f[\ai\ai\v[\ai\x06i\n[\ai\ti\f[\ai\ti\v[\ai\ti\n[\ai\ti\t[\ai\ni\f[\ai\vi\v[\ai\fi\n[\ai\ri\t;\nTo;\f\t;\x06[\ai\ri\r;\a;\x11;\t[\x06[\ai\fi\r;\nTo;\r\t;\x06[\ai\vi\r;\a;\x11;\t[\a[\ai\ni\f[\ai\ti\v;\nTo;\x10\t;\x06[\ai\ni\r;\a;\x11;\t[\a[\ai\ti\f[\ai\ni\f;\nT"
+  - "\x04\b[ o:\tPawn\n:\x11@coordinates[\ai\x06i\f:\v@color:\x06b:\v@moves[\a[\ai\x06i\v[\ai\x06i\n:\x10@first_moveT:\x0F@jump_moveFo;\0\n;\x06[\ai\ai\f;\a;\b;\t[\a[\ai\ai\v[\ai\ai\n;\nT;\vFo;\0\n;\x06[\ai\ti\t;\a;\b;\t[\a[\ai\bi\t[\ai\ti\t;\nF;\vFo;\0\n;\x06[\ai\ni\v;\a;\b;\t[\x06[\ai\ni\n;\nF;\vFo;\0\n;\x06[\ai\vi\f;\a;\b;\t[\a[\ai\vi\v[\ai\vi\n;\nT;\vFo;\0\n;\x06[\ai\fi\f;\a;\b;\t[\a[\ai\fi\v[\ai\fi\n;\nT;\vFo;\0\n;\x06[\ai\ri\f;\a;\b;\t[\a[\ai\ri\v[\ai\ri\n;\nT;\vFo:\tRook\t;\x06[\ai\x06i\r;\a;\b;\t[\0;\nTo:\vKnight\t;\x06[\ai\ai\r;\a;\b;\t[\b[\ai\x06i\v[\ai\bi\v[\ai\ti\f;\nTo:\vBishop\t;\x06[\ai\bi\r;\a;\b;\t[\x06[\ai\ti\f;\nTo:\nQueen\t;\x06[\ai\ti\r;\a;\b;\t[\x10[\ai\bi\f[\ai\ai\v[\ai\x06i\n[\ai\ti\f[\ai\ti\v[\ai\ti\n[\ai\ti\t[\ai\ni\f[\ai\vi\v[\ai\fi\n[\ai\ri\t;\nTo;\f\t;\x06[\ai\ri\r;\a;\b;\t[\x06[\ai\fi\r;\nTo;\x0E\t;\x06[\ai\vi\r;\a;\b;\t[\a[\ai\ni\f[\ai\ti\v;\nTo:\tKing\t;\x06[\ai\ni\r;\a;\b;\t[\a[\ai\ti\f[\ai\ni\f;\nTo;\0\n;\x06[\ai\x06i\a;\a:\x06w;\t[\a[\ai\x06i\b[\ai\x06i\t;\nT;\vFo;\0\n;\x06[\ai\bi\b;\a;\x11;\t[\x06[\ai\bi\t;\nF;\vFo;\0\n;\x06[\ai\ni\t;\a;\x11;\t[\x06[\ai\ni\n;\nF;\vFo;\0\n;\x06[\ai\vi\a;\a;\x11;\t[\0;\nT;\vFo;\0\n;\x06[\ai\fi\a;\a;\x11;\t[\a[\ai\fi\b[\ai\fi\t;\nT;\vFo;\0\n;\x06[\ai\ri\a;\a;\x11;\t[\a[\ai\ri\b[\ai\ri\t;\nT;\vFo;\f\t;\x06[\ai\x06i\x06;\a;\x11;\t[\x06[\ai\ai\x06;\nTo;\x0E\t;\x06[\ai\bi\x06;\a;\x11;\t[\f[\ai\ai\a[\ai\x06i\b[\ai\ti\a[\ai\ni\b[\ai\vi\t[\ai\fi\n[\ai\ri\v;\nTo;\x0F\t;\x06[\ai\ti\x06;\a;\x11;\t[\v[\ai\bi\a[\ai\ai\b[\ai\x06i\t[\ai\ti\a[\ai\ti\b[\ai\ni\a;\nTo;\f\t;\x06[\ai\ri\x06;\a;\x11;\t[\x06[\ai\fi\x06;\nTo;\r\t;\x06[\ai\vi\b;\a;\x11;\t[\n[\ai\ti\a[\ai\ni\n[\ai\fi\x06[\ai\fi\n[\ai\ri\t;\nFo;\x0E\t;\x06[\ai\vi\x06;\a;\x11;\t[\n[\ai\ni\a[\ai\ti\b[\ai\bi\t[\ai\ai\n[\ai\x06i\v;\nTo;\x10\t;\x06[\ai\ni\x06;\a;\x11;\t[\a[\ai\ti\a[\ai\ni\a;\nT"
+  - "\x04\b[\x1Fo:\tPawn\n:\x11@coordinates[\ai\x06i\a:\v@color:\x06w:\v@moves[\a[\ai\x06i\b[\ai\x06i\t:\x10@first_moveT:\x0F@jump_moveFo;\0\n;\x06[\ai\ti\t;\a;\b;\t[\a[\ai\bi\t[\ai\ti\t;\nF;\vFo;\0\n;\x06[\ai\ni\t;\a;\b;\t[\x06[\ai\ni\n;\nF;\vFo;\0\n;\x06[\ai\vi\a;\a;\b;\t[\0;\nT;\vFo;\0\n;\x06[\ai\fi\a;\a;\b;\t[\a[\ai\fi\b[\ai\fi\t;\nT;\vFo;\0\n;\x06[\ai\ri\a;\a;\b;\t[\a[\ai\ri\b[\ai\ri\t;\nT;\vFo:\tRook\t;\x06[\ai\x06i\x06;\a;\b;\t[\x06[\ai\ai\x06;\nTo:\vBishop\t;\x06[\ai\bi\x06;\a;\b;\t[\f[\ai\ai\a[\ai\x06i\b[\ai\ti\a[\ai\ni\b[\ai\vi\t[\ai\fi\n[\ai\ri\v;\nTo:\nQueen\t;\x06[\ai\ti\x06;\a;\b;\t[\f[\ai\bi\a[\ai\ai\b[\ai\x06i\t[\ai\ti\a[\ai\ti\b[\ai\ti\t[\ai\ni\a;\nTo;\f\t;\x06[\ai\ri\x06;\a;\b;\t[\x06[\ai\fi\x06;\nTo:\vKnight\t;\x06[\ai\vi\b;\a;\b;\t[\v[\ai\ti\a[\ai\ti\t[\ai\ni\n[\ai\fi\x06[\ai\fi\n[\ai\ri\t;\nFo;\r\t;\x06[\ai\vi\x06;\a;\b;\t[\n[\ai\ni\a[\ai\ti\b[\ai\bi\t[\ai\ai\n[\ai\x06i\v;\nTo:\tKing\t;\x06[\ai\ni\x06;\a;\b;\t[\a[\ai\ti\a[\ai\ni\a;\nTo;\0\n;\x06[\ai\x06i\f;\a:\x06b;\t[\a[\ai\x06i\v[\ai\x06i\n;\nT;\vFo;\0\n;\x06[\ai\ai\f;\a;\x11;\t[\a[\ai\ai\v[\ai\ai\n;\nT;\vFo;\0\n;\x06[\ai\ni\v;\a;\x11;\t[\x06[\ai\ni\n;\nF;\vFo;\0\n;\x06[\ai\vi\f;\a;\x11;\t[\a[\ai\vi\v[\ai\vi\n;\nT;\vFo;\0\n;\x06[\ai\fi\f;\a;\x11;\t[\a[\ai\fi\v[\ai\fi\n;\nT;\vFo;\0\n;\x06[\ai\ri\f;\a;\x11;\t[\a[\ai\ri\v[\ai\ri\n;\nT;\vFo;\f\t;\x06[\ai\x06i\r;\a;\x11;\t[\0;\nTo;\x0F\t;\x06[\ai\ai\r;\a;\x11;\t[\b[\ai\x06i\v[\ai\bi\v[\ai\ti\f;\nTo;\r\t;\x06[\ai\bi\r;\a;\x11;\t[\x06[\ai\ti\f;\nTo;\x0E\t;\x06[\ai\ti\r;\a;\x11;\t[\x0F[\ai\bi\f[\ai\ai\v[\ai\x06i\n[\ai\ti\f[\ai\ti\v[\ai\ti\n[\ai\ni\f[\ai\vi\v[\ai\fi\n[\ai\ri\t;\nTo;\f\t;\x06[\ai\ri\r;\a;\x11;\t[\x06[\ai\fi\r;\nTo;\r\t;\x06[\ai\vi\r;\a;\x11;\t[\n[\ai\ni\f[\ai\ti\v[\ai\bi\n[\ai\ai\t[\ai\x06i\b;\nTo;\x10\t;\x06[\ai\ni\r;\a;\x11;\t[\a[\ai\ti\f[\ai\ni\f;\nT"
+  - "\x04\b[\x1Fo:\tPawn\n:\x11@coordinates[\ai\x06i\f:\v@color:\x06b:\v@moves[\a[\ai\x06i\v[\ai\x06i\n:\x10@first_moveT:\x0F@jump_moveFo;\0\n;\x06[\ai\ai\f;\a;\b;\t[\a[\ai\ai\v[\ai\ai\n;\nT;\vFo;\0\n;\x06[\ai\ni\v;\a;\b;\t[\x06[\ai\ni\n;\nF;\vFo;\0\n;\x06[\ai\vi\f;\a;\b;\t[\a[\ai\vi\v[\ai\vi\n;\nT;\vFo;\0\n;\x06[\ai\fi\f;\a;\b;\t[\a[\ai\fi\v[\ai\fi\n;\nT;\vFo;\0\n;\x06[\ai\ri\f;\a;\b;\t[\a[\ai\ri\v[\ai\ri\n;\nT;\vFo:\tRook\t;\x06[\ai\x06i\r;\a;\b;\t[\0;\nTo:\vKnight\t;\x06[\ai\ai\r;\a;\b;\t[\b[\ai\x06i\v[\ai\bi\v[\ai\ti\f;\nTo:\vBishop\t;\x06[\ai\bi\r;\a;\b;\t[\x06[\ai\ti\f;\nTo:\nQueen\t;\x06[\ai\ti\r;\a;\b;\t[\x10[\ai\bi\f[\ai\ai\v[\ai\x06i\n[\ai\ti\f[\ai\ti\v[\ai\ti\n[\ai\ti\t[\ai\ni\f[\ai\vi\v[\ai\fi\n[\ai\ri\t;\nTo;\f\t;\x06[\ai\ri\r;\a;\b;\t[\x06[\ai\fi\r;\nTo;\x0E\t;\x06[\ai\ai\t;\a;\b;\t[\n[\ai\ni\f[\ai\ti\v[\ai\bi\n[\ai\ai\t[\ai\x06i\b;\nFo:\tKing\t;\x06[\ai\ni\r;\a;\b;\t[\a[\ai\ti\f[\ai\ni\f;\nTo;\0\n;\x06[\ai\x06i\a;\a:\x06w;\t[\a[\ai\x06i\b[\ai\x06i\t;\nT;\vFo;\0\n;\x06[\ai\ti\t;\a;\x11;\t[\x06[\ai\ti\n;\nF;\vFo;\0\n;\x06[\ai\ni\t;\a;\x11;\t[\x06[\ai\ni\n;\nF;\vFo;\0\n;\x06[\ai\vi\a;\a;\x11;\t[\0;\nT;\vFo;\0\n;\x06[\ai\fi\a;\a;\x11;\t[\a[\ai\fi\b[\ai\fi\t;\nT;\vFo;\0\n;\x06[\ai\ri\a;\a;\x11;\t[\a[\ai\ri\b[\ai\ri\t;\nT;\vFo;\f\t;\x06[\ai\x06i\x06;\a;\x11;\t[\x06[\ai\ai\x06;\nTo;\x0E\t;\x06[\ai\bi\x06;\a;\x11;\t[\f[\ai\ai\a[\ai\x06i\b[\ai\ti\a[\ai\ni\b[\ai\vi\t[\ai\fi\n[\ai\ri\v;\nTo;\x0F\t;\x06[\ai\ti\x06;\a;\x11;\t[\v[\ai\bi\a[\ai\ai\b[\ai\x06i\t[\ai\ti\a[\ai\ti\b[\ai\ni\a;\nTo;\f\t;\x06[\ai\ri\x06;\a;\x11;\t[\x06[\ai\fi\x06;\nTo;\r\t;\x06[\ai\vi\b;\a;\x11;\t[\n[\ai\ti\a[\ai\ni\n[\ai\fi\x06[\ai\fi\n[\ai\ri\t;\nFo;\x0E\t;\x06[\ai\vi\x06;\a;\x11;\t[\n[\ai\ni\a[\ai\ti\b[\ai\bi\t[\ai\ai\n[\ai\x06i\v;\nTo;\x10\t;\x06[\ai\ni\x06;\a;\x11;\t[\a[\ai\ti\a[\ai\ni\a;\nT"
+  - "\x04\b[\x1Fo:\tPawn\n:\x11@coordinates[\ai\x06i\a:\v@color:\x06w:\v@moves[\0:\x10@first_moveT:\x0F@jump_moveFo;\0\n;\x06[\ai\ti\t;\a;\b;\t[\0;\nF;\vFo;\0\n;\x06[\ai\ni\t;\a;\b;\t[\0;\nF;\vFo;\0\n;\x06[\ai\vi\a;\a;\b;\t[\0;\nT;\vFo;\0\n;\x06[\ai\fi\a;\a;\b;\t[\0;\nT;\vFo;\0\n;\x06[\ai\ri\a;\a;\b;\t[\0;\nT;\vFo:\tRook\t;\x06[\ai\x06i\x06;\a;\b;\t[\0;\nTo:\vBishop\t;\x06[\ai\ti\a;\a;\b;\t[\x06[\ai\ti\a;\nFo:\nQueen\t;\x06[\ai\ti\x06;\a;\b;\t[\x06[\ai\ti\a;\nTo;\f\t;\x06[\ai\ri\x06;\a;\b;\t[\0;\nTo:\vKnight\t;\x06[\ai\vi\b;\a;\b;\t[\x06[\ai\ti\a;\nFo;\r\t;\x06[\ai\vi\x06;\a;\b;\t[\0;\nTo:\tKing\t;\x06[\ai\ni\x06;\a;\b;\t[\x06[\ai\ni\a;\nTo;\0\n;\x06[\ai\x06i\f;\a:\x06b;\t[\a[\ai\x06i\v[\ai\x06i\n;\nT;\vFo;\0\n;\x06[\ai\ai\f;\a;\x11;\t[\a[\ai\ai\v[\ai\ai\n;\nT;\vFo;\0\n;\x06[\ai\ni\v;\a;\x11;\t[\x06[\ai\ni\n;\nF;\vFo;\0\n;\x06[\ai\vi\f;\a;\x11;\t[\a[\ai\vi\v[\ai\vi\n;\nT;\vFo;\0\n;\x06[\ai\fi\f;\a;\x11;\t[\a[\ai\fi\v[\ai\fi\n;\nT;\vFo;\0\n;\x06[\ai\ri\f;\a;\x11;\t[\a[\ai\ri\v[\ai\ri\n;\nT;\vFo;\f\t;\x06[\ai\x06i\r;\a;\x11;\t[\0;\nTo;\x0F\t;\x06[\ai\ai\r;\a;\x11;\t[\b[\ai\x06i\v[\ai\bi\v[\ai\ti\f;\nTo;\r\t;\x06[\ai\bi\r;\a;\x11;\t[\x06[\ai\ti\f;\nTo;\x0E\t;\x06[\ai\ti\r;\a;\x11;\t[\x10[\ai\bi\f[\ai\ai\v[\ai\x06i\n[\ai\ti\f[\ai\ti\v[\ai\ti\n[\ai\ti\t[\ai\ni\f[\ai\vi\v[\ai\fi\n[\ai\ri\t;\nTo;\f\t;\x06[\ai\ri\r;\a;\x11;\t[\a[\ai\fi\r[\ai\vi\r;\nTo;\r\t;\x06[\ai\ai\t;\a;\x11;\t[\x0E[\ai\x06i\b[\ai\x06i\n[\ai\bi\b[\ai\ti\a[\ai\ni\x06[\ai\bi\n[\ai\ti\v[\ai\ni\f[\ai\vi\r;\nFo;\x10\t;\x06[\ai\ni\r;\a;\x11;\t[\t[\ai\ti\f[\ai\ni\f[\ai\vi\r[\ai\fi\r;\nT"
+  - "\x04\b[\x1Eo:\tPawn\n:\x11@coordinates[\ai\x06i\f:\v@color:\x06b:\v@moves[\a[\ai\x06i\v[\ai\x06i\n:\x10@first_moveT:\x0F@jump_moveFo;\0\n;\x06[\ai\ai\f;\a;\b;\t[\a[\ai\ai\v[\ai\ai\n;\nT;\vFo;\0\n;\x06[\ai\ni\v;\a;\b;\t[\x06[\ai\ni\n;\nF;\vFo;\0\n;\x06[\ai\vi\f;\a;\b;\t[\a[\ai\vi\v[\ai\vi\n;\nT;\vFo;\0\n;\x06[\ai\fi\f;\a;\b;\t[\a[\ai\fi\v[\ai\fi\n;\nT;\vFo;\0\n;\x06[\ai\ri\f;\a;\b;\t[\a[\ai\ri\v[\ai\ri\n;\nT;\vFo:\tRook\t;\x06[\ai\x06i\r;\a;\b;\t[\0;\nTo:\vKnight\t;\x06[\ai\ai\r;\a;\b;\t[\b[\ai\x06i\v[\ai\bi\v[\ai\ti\f;\nTo:\vBishop\t;\x06[\ai\bi\r;\a;\b;\t[\x06[\ai\ti\f;\nTo:\nQueen\t;\x06[\ai\ti\r;\a;\b;\t[\x10[\ai\bi\f[\ai\ai\v[\ai\x06i\n[\ai\ti\f[\ai\ti\v[\ai\ti\n[\ai\ti\t[\ai\ni\f[\ai\vi\v[\ai\fi\n[\ai\ri\t;\nTo;\f\t;\x06[\ai\ri\r;\a;\b;\t[\a[\ai\fi\r[\ai\vi\r;\nTo;\x0E\t;\x06[\ai\ti\a;\a;\b;\t[\r[\ai\x06i\b[\ai\x06i\n[\ai\bi\b[\ai\ti\a[\ai\bi\n[\ai\ti\v[\ai\ni\f[\ai\vi\r;\nFo:\tKing\t;\x06[\ai\ni\r;\a;\b;\t[\t[\ai\ti\f[\ai\ni\f[\ai\vi\r[\ai\fi\r;\nTo;\0\n;\x06[\ai\x06i\a;\a:\x06w;\t[\a[\ai\x06i\b[\ai\x06i\t;\nT;\vFo;\0\n;\x06[\ai\ti\t;\a;\x11;\t[\x06[\ai\ti\n;\nF;\vFo;\0\n;\x06[\ai\ni\t;\a;\x11;\t[\x06[\ai\ni\n;\nF;\vFo;\0\n;\x06[\ai\vi\a;\a;\x11;\t[\0;\nT;\vFo;\0\n;\x06[\ai\fi\a;\a;\x11;\t[\a[\ai\fi\b[\ai\fi\t;\nT;\vFo;\0\n;\x06[\ai\ri\a;\a;\x11;\t[\a[\ai\ri\b[\ai\ri\t;\nT;\vFo;\f\t;\x06[\ai\x06i\x06;\a;\x11;\t[\a[\ai\ai\x06[\ai\bi\x06;\nTo;\x0F\t;\x06[\ai\ti\x06;\a;\x11;\t[\v[\ai\bi\x06[\ai\ai\x06[\ai\bi\a[\ai\ai\b[\ai\x06i\t[\ai\ni\a;\nTo;\f\t;\x06[\ai\ri\x06;\a;\x11;\t[\x06[\ai\fi\x06;\nTo;\r\t;\x06[\ai\vi\b;\a;\x11;\t[\t[\ai\ni\n[\ai\fi\x06[\ai\fi\n[\ai\ri\t;\nFo;\x0E\t;\x06[\ai\vi\x06;\a;\x11;\t[\n[\ai\ni\a[\ai\ti\b[\ai\bi\t[\ai\ai\n[\ai\x06i\v;\nTo;\x10\t;\x06[\ai\ni\x06;\a;\x11;\t[\x06[\ai\ni\a;\nT"
+  - "\x04\b[\x1Do:\tPawn\n:\x11@coordinates[\ai\x06i\a:\v@color:\x06w:\v@moves[\0:\x10@first_moveT:\x0F@jump_moveFo;\0\n;\x06[\ai\ti\t;\a;\b;\t[\0;\nF;\vFo;\0\n;\x06[\ai\ni\t;\a;\b;\t[\0;\nF;\vFo;\0\n;\x06[\ai\vi\a;\a;\b;\t[\0;\nT;\vFo;\0\n;\x06[\ai\fi\a;\a;\b;\t[\0;\nT;\vFo;\0\n;\x06[\ai\ri\a;\a;\b;\t[\0;\nT;\vFo:\tRook\t;\x06[\ai\x06i\x06;\a;\b;\t[\0;\nTo:\nQueen\t;\x06[\ai\ti\a;\a;\b;\t[\x06[\ai\ti\a;\nFo;\f\t;\x06[\ai\ri\x06;\a;\b;\t[\0;\nTo:\vKnight\t;\x06[\ai\vi\b;\a;\b;\t[\x06[\ai\ti\a;\nFo:\vBishop\t;\x06[\ai\vi\x06;\a;\b;\t[\0;\nTo:\tKing\t;\x06[\ai\ni\x06;\a;\b;\t[\a[\ai\ti\a[\ai\ni\a;\nTo;\0\n;\x06[\ai\x06i\f;\a:\x06b;\t[\a[\ai\x06i\v[\ai\x06i\n;\nT;\vFo;\0\n;\x06[\ai\ai\f;\a;\x11;\t[\a[\ai\ai\v[\ai\ai\n;\nT;\vFo;\0\n;\x06[\ai\ni\v;\a;\x11;\t[\x06[\ai\ni\n;\nF;\vFo;\0\n;\x06[\ai\vi\f;\a;\x11;\t[\a[\ai\vi\v[\ai\vi\n;\nT;\vFo;\0\n;\x06[\ai\fi\f;\a;\x11;\t[\a[\ai\fi\v[\ai\fi\n;\nT;\vFo;\0\n;\x06[\ai\ri\f;\a;\x11;\t[\a[\ai\ri\v[\ai\ri\n;\nT;\vFo;\f\t;\x06[\ai\x06i\r;\a;\x11;\t[\0;\nTo;\x0E\t;\x06[\ai\ai\r;\a;\x11;\t[\b[\ai\x06i\v[\ai\bi\v[\ai\ti\f;\nTo;\x0F\t;\x06[\ai\bi\r;\a;\x11;\t[\x06[\ai\ti\f;\nTo;\r\t;\x06[\ai\ti\r;\a;\x11;\t[\x10[\ai\bi\f[\ai\ai\v[\ai\x06i\n[\ai\ti\f[\ai\ti\v[\ai\ti\n[\ai\ti\t[\ai\ni\f[\ai\vi\v[\ai\fi\n[\ai\ri\t;\nTo;\f\t;\x06[\ai\ri\r;\a;\x11;\t[\a[\ai\fi\r[\ai\vi\r;\nTo;\x10\t;\x06[\ai\ni\r;\a;\x11;\t[\t[\ai\ti\f[\ai\ni\f[\ai\vi\r[\ai\fi\r;\nT"
+  - "\x04\b[\x1Do:\tPawn\n:\x11@coordinates[\ai\x06i\f:\v@color:\x06b:\v@moves[\a[\ai\x06i\v[\ai\x06i\n:\x10@first_moveT:\x0F@jump_moveFo;\0\n;\x06[\ai\ai\f;\a;\b;\t[\a[\ai\ai\v[\ai\ai\n;\nT;\vFo;\0\n;\x06[\ai\ni\v;\a;\b;\t[\x06[\ai\ni\n;\nF;\vFo;\0\n;\x06[\ai\vi\f;\a;\b;\t[\a[\ai\vi\v[\ai\vi\n;\nT;\vFo;\0\n;\x06[\ai\fi\f;\a;\b;\t[\a[\ai\fi\v[\ai\fi\n;\nT;\vFo;\0\n;\x06[\ai\ri\f;\a;\b;\t[\a[\ai\ri\v[\ai\ri\n;\nT;\vFo:\tRook\t;\x06[\ai\x06i\r;\a;\b;\t[\0;\nTo:\vKnight\t;\x06[\ai\ai\r;\a;\b;\t[\b[\ai\x06i\v[\ai\bi\v[\ai\ti\f;\nTo:\vBishop\t;\x06[\ai\bi\r;\a;\b;\t[\x06[\ai\ti\f;\nTo:\nQueen\t;\x06[\ai\ti\r;\a;\b;\t[\x10[\ai\bi\f[\ai\ai\v[\ai\x06i\n[\ai\ti\f[\ai\ti\v[\ai\ti\n[\ai\ti\t[\ai\ni\f[\ai\vi\v[\ai\fi\n[\ai\ri\t;\nTo;\f\t;\x06[\ai\vi\r;\a;\b;\t[\a[\ai\fi\r[\ai\vi\r;\nFo:\tKing\t;\x06[\ai\fi\r;\a;\b;\t[\t[\ai\ti\f[\ai\ni\f[\ai\vi\r[\ai\fi\r;\nFo;\0\n;\x06[\ai\x06i\a;\a:\x06w;\t[\a[\ai\x06i\b[\ai\x06i\t;\nT;\vFo;\0\n;\x06[\ai\ti\t;\a;\x11;\t[\x06[\ai\ti\n;\nF;\vFo;\0\n;\x06[\ai\ni\t;\a;\x11;\t[\x06[\ai\ni\n;\nF;\vFo;\0\n;\x06[\ai\vi\a;\a;\x11;\t[\0;\nT;\vFo;\0\n;\x06[\ai\fi\a;\a;\x11;\t[\a[\ai\fi\b[\ai\fi\t;\nT;\vFo;\0\n;\x06[\ai\ri\a;\a;\x11;\t[\a[\ai\ri\b[\ai\ri\t;\nT;\vFo;\f\t;\x06[\ai\x06i\x06;\a;\x11;\t[\b[\ai\ai\x06[\ai\bi\x06[\ai\ti\x06;\nTo;\x0F\t;\x06[\ai\ti\a;\a;\x11;\t[\x12[\ai\bi\x06[\ai\bi\a[\ai\ai\a[\ai\bi\b[\ai\ai\t[\ai\x06i\n[\ai\ti\x06[\ai\ti\b[\ai\ni\a[\ai\ni\b[\ai\vi\t[\ai\fi\n[\ai\ri\v;\nFo;\f\t;\x06[\ai\ri\x06;\a;\x11;\t[\x06[\ai\fi\x06;\nTo;\r\t;\x06[\ai\vi\b;\a;\x11;\t[\t[\ai\ni\n[\ai\fi\x06[\ai\fi\n[\ai\ri\t;\nFo;\x0E\t;\x06[\ai\vi\x06;\a;\x11;\t[\n[\ai\ni\a[\ai\ti\b[\ai\bi\t[\ai\ai\n[\ai\x06i\v;\nTo;\x10\t;\x06[\ai\ni\x06;\a;\x11;\t[\b[\ai\ti\x06[\ai\ni\a[\ai\bi\x06;\nT"
+  board: !ruby/object:Board
+    tiles:
+    - - 1
+      - 8
+    - - 2
+      - 8
+    - - 3
+      - 8
+    - - 4
+      - 8
+    - - 5
+      - 8
+    - - 6
+      - 8
+    - - 7
+      - 8
+    - - 8
+      - 8
+    - - 1
+      - 7
+    - - 2
+      - 7
+    - - 3
+      - 7
+    - - 4
+      - 7
+    - - 5
+      - 7
+    - - 6
+      - 7
+    - - 7
+      - 7
+    - - 8
+      - 7
+    - - 1
+      - 6
+    - - 2
+      - 6
+    - - 3
+      - 6
+    - - 4
+      - 6
+    - - 5
+      - 6
+    - - 6
+      - 6
+    - - 7
+      - 6
+    - - 8
+      - 6
+    - - 1
+      - 5
+    - - 2
+      - 5
+    - - 3
+      - 5
+    - - 4
+      - 5
+    - - 5
+      - 5
+    - - 6
+      - 5
+    - - 7
+      - 5
+    - - 8
+      - 5
+    - - 1
+      - 4
+    - - 2
+      - 4
+    - - 3
+      - 4
+    - - 4
+      - 4
+    - - 5
+      - 4
+    - - 6
+      - 4
+    - - 7
+      - 4
+    - - 8
+      - 4
+    - - 1
+      - 3
+    - - 2
+      - 3
+    - - 3
+      - 3
+    - - 4
+      - 3
+    - - 5
+      - 3
+    - - 6
+      - 3
+    - - 7
+      - 3
+    - - 8
+      - 3
+    - - 1
+      - 2
+    - - 2
+      - 2
+    - - 3
+      - 2
+    - - 4
+      - 2
+    - - 5
+      - 2
+    - - 6
+      - 2
+    - - 7
+      - 2
+    - - 8
+      - 2
+    - - 1
+      - 1
+    - - 2
+      - 1
+    - - 3
+      - 1
+    - - 4
+      - 1
+    - - 5
+      - 1
+    - - 6
+      - 1
+    - - 7
+      - 1
+    - - 8
+      - 1
+turn_counter: 20
+state:

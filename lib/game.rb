@@ -12,11 +12,14 @@ require_relative './players/computer'
 
 # Class for chess game loop
 class Game
-  def initialize
-    @players = [Human.new(:w), Human.new(:b)]
+  attr_reader :players
+  attr_accessor :state
+
+  def initialize(players)
+    @players = players
     @engine = Engine.new
     @turn_counter = 0
-    @game_state = nil
+    @state = nil
   end
 
   def all_pieces
@@ -24,8 +27,6 @@ class Game
   end
 
   def create_players
-    system('clear')
-
     @players.each(&:create_pieces)
   end
 
@@ -52,27 +53,21 @@ class Game
   end
 
   def play
-    while @game_state.nil?
+    while @state.nil?
       update_all_moves
 
       turn_order
 
       prepare
 
-      break unless @game_state.nil?
+      break unless @state.nil?
 
       play_turn
 
-      @turn_counter += 1 if @game_state.nil?
+      @turn_counter += 1 if @state.nil?
     end
 
-    end_game
-  end
-
-  def end_game
     @engine.create_board(@players[0], @players[1], all_pieces, final: true)
-
-    @game_state
   end
 
   def turn_order
@@ -84,12 +79,14 @@ class Game
   def prepare
     @engine.filter_moves(@players[0], Marshal.dump(@players[1]), all_pieces)
 
-    @game_state = game_over? if @game_state.nil?
+    @state = game_over? if @state.nil?
   end
 
   def play_turn(move = '', piece = '')
     while move.instance_of?(String)
       @engine.create_board(@players[0], @players[1], all_pieces)
+
+      sleep(3) if @players[0].instance_of?(Computer)
 
       piece = get_valid_piece
 
@@ -105,7 +102,7 @@ class Game
 
   def command?(choice)
     if choice.instance_of?(String)
-      @game_state = choice
+      @state = choice
 
       return true
     end
@@ -122,6 +119,8 @@ class Game
   # rubocop:disable Metrics/AbcSize
   # rubocop:disable Naming/AccessorMethodName
   def get_valid_piece
+    puts "\nCommands: save, resign.\n\n" if @players[0].instance_of?(Human)
+
     loop do
       choice = @players[0].get_choice(1)
 
@@ -138,6 +137,8 @@ class Game
   # rubocop:enable Naming/AccessorMethodName
 
   def get_valid_move(piece)
+    puts "\nCommands: back.\n\n" if @players[0].instance_of?(Human)
+
     loop do
       choice = @players[0].get_choice(2)
 
