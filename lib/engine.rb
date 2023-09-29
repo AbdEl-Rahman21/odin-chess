@@ -113,10 +113,16 @@ class Engine
 
       piece.move_piece(move)
 
-      @counter75 = 0 if piece.instance_of?(Pawn)
+      handle_pawn(player, piece) if piece.instance_of?(Pawn)
 
       break
     end
+  end
+
+  def handle_pawn(player, piece)
+    @counter75 = 0
+
+    player.promote(piece) if piece.coordinates[1] == 1 || piece.coordinates[1] == 8
   end
 
   def castle(player, move)

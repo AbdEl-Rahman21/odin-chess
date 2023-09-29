@@ -22,7 +22,7 @@ class Board
   end
 
   def print_board(pieces, piece_to_move)
-    # system('clear')
+    system('clear')
 
     puts "\s\s\sa\s\sb\s\sc\s\sd\s\se\s\sf\s\sg\s\sh"
 
