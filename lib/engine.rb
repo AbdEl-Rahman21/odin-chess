@@ -21,11 +21,11 @@ class Engine
     @board = Board.new
   end
 
-  def create_board(player, enemy, pieces, piece = '')
+  def create_board(player, enemy, pieces, piece = '', final: false)
     @board.print_board(pieces, piece)
 
     # rubocop:disable Layout/LineLength
-    puts Rainbow("Warning! #{player.print_color} is in check.").color(:red) if check?(player.pieces.last.coordinates, enemy)
+    puts Rainbow("Warning! #{player.print_color} is in check.").color(:red) if check?(player.pieces.last.coordinates, enemy) && !final
     # rubocop:enable Layout/LineLength
   end
 

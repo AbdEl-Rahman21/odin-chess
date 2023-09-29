@@ -9,10 +9,9 @@ require_relative '../pieces/rook'
 
 # Superclass for players
 class Player
-  attr_reader :name, :color, :in_check, :pieces
+  attr_reader :color, :pieces
 
   def initialize(color)
-    @name = ''
     @color = color
     @pieces = []
   end

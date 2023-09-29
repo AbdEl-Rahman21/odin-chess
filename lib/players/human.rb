@@ -8,15 +8,9 @@ require_relative './player'
 class Human < Player
   COMMANDS = %w[save back resign].freeze
 
-  def get_name(number)
-    print "Player #{number} (#{print_color}), enter your name: "
-
-    @name = gets.chomp
-  end
-
   def get_choice(step)
     loop do
-      print "#{@name} (#{print_color}), "
+      print "#{print_color}, "
 
       print_step(step)
 
