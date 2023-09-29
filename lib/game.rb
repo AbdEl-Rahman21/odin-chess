@@ -82,6 +82,20 @@ class Game
     @state = game_over? if @state.nil?
   end
 
+  def game_over?
+    return 'CM' if @engine.checkmate?(@players[0], @players[1])
+
+    return 'SM' if @engine.stalemate?(@players[0], @players[1])
+
+    return 'DP' if @engine.dead_position?(all_pieces)
+
+    return 'FFR' if @engine.fivefold_repetition?(all_pieces)
+
+    return '75' if @engine.seventy_five_move_rule?
+
+    nil
+  end
+
   def play_turn(move = '', piece = '')
     while move.instance_of?(String)
       @engine.create_board(@players[0], @players[1], all_pieces)
@@ -98,22 +112,6 @@ class Game
     end
 
     update_engine_info(piece, move)
-  end
-
-  def command?(choice)
-    if choice.instance_of?(String)
-      @state = choice
-
-      return true
-    end
-
-    false
-  end
-
-  def update_engine_info(piece, move)
-    @engine.update_pieces(@players[0], @players[1], piece, move)
-
-    @engine.update_counters(all_pieces)
   end
 
   # rubocop:disable Metrics/AbcSize
@@ -136,6 +134,16 @@ class Game
   # rubocop:enable Metrics/AbcSize
   # rubocop:enable Naming/AccessorMethodName
 
+  def command?(choice)
+    if choice.instance_of?(String)
+      @state = choice
+
+      return true
+    end
+
+    false
+  end
+
   def get_valid_move(piece)
     puts "\nCommands: back.\n\n" if @players[0].instance_of?(Human)
 
@@ -152,17 +160,9 @@ class Game
     end
   end
 
-  def game_over?
-    return 'CM' if @engine.checkmate?(@players[0], @players[1])
+  def update_engine_info(piece, move)
+    @engine.update_pieces(@players[0], @players[1], piece, move)
 
-    return 'SM' if @engine.stalemate?(@players[0], @players[1])
-
-    return 'DP' if @engine.dead_position?(all_pieces)
-
-    return 'FFR' if @engine.fivefold_repetition?(all_pieces)
-
-    return '75' if @engine.seventy_five_move_rule?
-
-    nil
+    @engine.update_counters(all_pieces)
   end
 end

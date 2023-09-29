@@ -54,23 +54,6 @@ class Board
     print_tile_helper(color, symbol)
   end
 
-  def print_tile_helper(color, symbol)
-    print Rainbow("\s#{symbol}").bg(color)
-    print Rainbow("\s").bg(color)
-  end
-
-  def tile_color(index, pieces, piece_to_move)
-    unless piece_to_move == ''
-      pieces.each do |piece|
-        return :crimson if piece.coordinates == @tiles[index] && piece_to_move.moves.include?(piece.coordinates)
-      end
-    end
-
-    return :green if @tiles[index].sum.even?
-
-    :snow
-  end
-
   def tile_status(index, pieces, piece_to_move)
     pieces.each { |piece| return piece_color(piece) if piece.coordinates == @tiles[index] }
 
@@ -104,4 +87,21 @@ class Board
   # rubocop:enable Metrics/MethodLength
   # rubocop:enable Metrics/PerceivedComplexity
   # rubocop:enable Metrics/CyclomaticComplexity
+
+  def tile_color(index, pieces, piece_to_move)
+    unless piece_to_move == ''
+      pieces.each do |piece|
+        return :crimson if piece.coordinates == @tiles[index] && piece_to_move.moves.include?(piece.coordinates)
+      end
+    end
+
+    return :green if @tiles[index].sum.even?
+
+    :snow
+  end
+
+  def print_tile_helper(color, symbol)
+    print Rainbow("\s#{symbol}").bg(color)
+    print Rainbow("\s").bg(color)
+  end
 end

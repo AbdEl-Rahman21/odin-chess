@@ -13,6 +13,7 @@ require_relative './pieces/rook'
 
 require_relative './players/player'
 
+# rubocop:disable Metrics/ClassLength
 # Helper class for Game class
 class Engine
   def initialize
@@ -61,24 +62,6 @@ class Engine
     !good_move
   end
 
-  def check?(player_king, enemy)
-    enemy.pieces.each { |piece| return true if piece.moves.include?(player_king) }
-
-    false
-  end
-
-  def update_counters(pieces)
-    @counter75 += 1
-
-    @board_history.push(Marshal.dump(pieces))
-  end
-
-  def update_pieces(player, enemy, piece_to_move, move)
-    update_player_pieces(player, piece_to_move, move)
-
-    update_enemy_pieces(enemy, piece_to_move)
-  end
-
   def update_enemy_pieces(enemy, moved_piece, test: false)
     enemy.pieces.each do |piece|
       next unless moved_piece.coordinates == piece.coordinates || en_passant(piece, moved_piece)
@@ -105,6 +88,24 @@ class Engine
   end
   # rubocop:enable Metrics/AbcSize
 
+  def check?(player_king, enemy)
+    enemy.pieces.each { |piece| return true if piece.moves.include?(player_king) }
+
+    false
+  end
+
+  def update_counters(pieces)
+    @counter75 += 1
+
+    @board_history.push(Marshal.dump(pieces))
+  end
+
+  def update_pieces(player, enemy, piece_to_move, move)
+    update_player_pieces(player, piece_to_move, move)
+
+    update_enemy_pieces(enemy, piece_to_move)
+  end
+
   def update_player_pieces(player, piece_to_move, move)
     castle(player, move) if piece_to_move.instance_of?(King) && (piece_to_move.coordinates[0] - move[0]).abs == 2
 
@@ -117,12 +118,6 @@ class Engine
 
       break
     end
-  end
-
-  def handle_pawn(player, piece)
-    @counter75 = 0
-
-    player.promote(piece) if piece.coordinates[1] == 1 || piece.coordinates[1] == 8
   end
 
   def castle(player, move)
@@ -139,6 +134,12 @@ class Engine
     end
 
     true
+  end
+
+  def handle_pawn(player, piece)
+    @counter75 = 0
+
+    player.promote(piece) if piece.coordinates[1] == 1 || piece.coordinates[1] == 8
   end
 
   def checkmate?(player, enemy)
@@ -199,3 +200,4 @@ class Engine
     false
   end
 end
+# rubocop:enable Metrics/ClassLength

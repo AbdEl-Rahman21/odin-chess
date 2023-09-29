@@ -50,6 +50,15 @@ class King < Piece
     true
   end
 
+  def castling_helper(piece, tiles)
+    return true if tiles.include?(piece.coordinates) ||
+                   (piece.color != @color && piece.moves.any? do |move|
+                      move == @coordinates || move == tiles[0] || move == tiles[1]
+                    end)
+
+    false
+  end
+
   def long_castling(pieces)
     tiles = [[@coordinates[0] - 1, @coordinates[1]], [@coordinates[0] - 2, @coordinates[1]],
              [@coordinates[0] - 3, @coordinates[1]]]
@@ -71,14 +80,5 @@ class King < Piece
                     castling_helper(piece, tiles)
 
     true
-  end
-
-  def castling_helper(piece, tiles)
-    return true if tiles.include?(piece.coordinates) ||
-                   (piece.color != @color && piece.moves.any? do |move|
-                      move == @coordinates || move == tiles[0] || move == tiles[1]
-                    end)
-
-    false
   end
 end

@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'rainbow'
 require 'fileutils'
 require 'yaml'
 
@@ -112,7 +113,8 @@ def load_game
   YAML.load_file(
     get_save_to_load(saves).to_s,
     aliases: true,
-    permitted_classes: [Symbol, Bishop,King,Knight,Pawn,Piece,Queen,Rook,Computer,Human,Player,Board,Engine,Game]
+    permitted_classes: [Symbol, Bishop, King, Knight, Pawn, Piece, Queen, Rook, Computer, Human, Player, Board, Engine,
+                        Game]
   )
 end
 
@@ -158,7 +160,7 @@ end
 def save_game(game)
   FileUtils.mkdir_p('saved_games')
 
-  game.state=nil
+  game.state = nil
 
   File.open("saved_games/#{get_save_name}.yaml", 'w') { |file| file.puts YAML.dump(game) }
 end
