@@ -6,6 +6,14 @@ require_relative './piece'
 class Pawn < Piece
   TRANSITIONS = [[0, 1], [0, 2], [-1, 1], [1, 1], [0, -1], [0, -2], [-1, -1], [1, -1]].freeze
 
+  attr_accessor :jump_move
+
+  def initialize(coordinates, color)
+    super(coordinates, color)
+
+    @jump_move = false
+  end
+
   def update_moves(pieces)
     @moves = []
 
@@ -40,6 +48,39 @@ class Pawn < Piece
 
       return true
     end
+
+    false
+  end
+
+  def move_piece(move, test: false)
+    unless test
+      @jump_move = true if (@coordinates[0] - move[0]).zero? && (@coordinates[1] - move[1]).abs == 2
+
+      @first_move = false
+    end
+
+    @coordinates = move
+  end
+
+  def in_passing(pieces)
+    pieces.each do |piece|
+      next unless in_passing_helper(piece)
+
+      if @color == :w
+        @moves.push([piece.coordinates[0], piece.coordinates[1] + 1])
+      else
+        @moves.push([piece.coordinates[0], piece.coordinates[1] - 1])
+      end
+
+      break
+    end
+  end
+
+  def in_passing_helper(piece)
+    tiles = [[@coordinates[0] + 1, @coordinates[1]], [@coordinates[0] - 1, @coordinates[1]]]
+
+    return true if tiles.include?(piece.coordinates) && piece.instance_of?(Pawn) && piece.jump_move &&
+                   piece.color != @color
 
     false
   end

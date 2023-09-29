@@ -4,7 +4,8 @@ require 'rainbow'
 
 require_relative './engine'
 
-require_relative './pieces/piece'
+require_relative './pieces/king'
+require_relative './pieces/pawn'
 
 require_relative './players/human'
 require_relative './players/computer'
@@ -35,7 +36,19 @@ class Game
   end
 
   def update_special_moves
-    @players.each { |player| player.pieces.last.castling(all_pieces) }
+    @players.each do |player|
+      player.pieces.each do |piece|
+        if piece.instance_of?(Pawn)
+
+          piece.in_passing(all_pieces)
+
+        elsif piece.instance_of?(King)
+
+          piece.castling(all_pieces)
+
+        end
+      end
+    end
   end
 
   def play

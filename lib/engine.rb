@@ -34,9 +34,11 @@ class Engine
   end
 
   def filter_moves(player, enemy_copy, pieces)
-    # rubocop:disable Layout/LineLength
-    player.pieces.each { |piece| piece.moves.filter! { |move| filter_moves_helper(player, enemy_copy, pieces, piece, move) } }
-    # rubocop:enable Layout/LineLength
+    player.pieces.each do |piece|
+      piece.jump_move = false if piece.instance_of?(Pawn)
+
+      piece.moves.filter! { |move| filter_moves_helper(player, enemy_copy, pieces, piece, move) }
+    end
   end
 
   def filter_moves_helper(player, enemy_copy, pieces, piece, move)
@@ -46,9 +48,9 @@ class Engine
     enemy = Marshal.load(enemy_copy)
     # rubocop:enable Security/MarshalLoad
 
-    update_enemy_pieces(enemy, move, test: true)
-
     piece.move_piece(move, test: true)
+
+    update_enemy_pieces(enemy, piece, test: true)
 
     update_player_moves(enemy, pieces)
 
@@ -74,12 +76,12 @@ class Engine
   def update_pieces(player, enemy, piece_to_move, move)
     update_player_pieces(player, piece_to_move, move)
 
-    update_enemy_pieces(enemy, move)
+    update_enemy_pieces(enemy, piece_to_move)
   end
 
-  def update_enemy_pieces(enemy, move, test: false)
+  def update_enemy_pieces(enemy, moved_piece, test: false)
     enemy.pieces.each do |piece|
-      next unless move == piece.coordinates
+      next unless moved_piece.coordinates == piece.coordinates || en_passant(piece, moved_piece)
 
       enemy.pieces.delete(piece)
 
@@ -89,15 +91,29 @@ class Engine
     end
   end
 
+  # rubocop:disable Metrics/AbcSize
+  def en_passant(piece, moved_piece)
+    if piece.instance_of?(Pawn) && piece.jump_move && moved_piece.instance_of?(Pawn)
+      if moved_piece.color == :w
+        return true if moved_piece.coordinates == [piece.coordinates[0], piece.coordinates[1] + 1]
+      elsif moved_piece.coordinates == [piece.coordinates[0], piece.coordinates[1] - 1]
+        return true
+      end
+    end
+
+    false
+  end
+  # rubocop:enable Metrics/AbcSize
+
   def update_player_pieces(player, piece_to_move, move)
     castle(player, move) if piece_to_move.instance_of?(King) && (piece_to_move.coordinates[0] - move[0]).abs == 2
 
     player.pieces.each do |piece|
       next unless piece_to_move == piece
 
-      @counter75 = 0 if piece.instance_of?(Pawn)
-
       piece.move_piece(move)
+
+      @counter75 = 0 if piece.instance_of?(Pawn)
 
       break
     end
