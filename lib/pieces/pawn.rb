@@ -4,7 +4,7 @@ require_relative './piece'
 
 # Class for the Pawn piece
 class Pawn < Piece
-  TRANSITIONS = [[-1, 1], [0, 2], [0, 1], [1, 1], [-1, -1], [0, -2], [0, -1], [1, -1]].freeze
+  TRANSITIONS = [[0, 1], [0, 2], [-1, 1], [1, 1], [0, -1], [0, -2], [-1, -1], [1, -1]].freeze
 
   def update_moves(pieces)
     @moves = []
@@ -18,12 +18,14 @@ class Pawn < Piece
     end
   end
 
+  # rubocop:disable Metrics/CyclomaticComplexity
   def skip?(transition)
-    return true if (transition[1].abs == 2 && !@first_move) || (transition[1].negative? && @color == :w) ||
-                   (transition[1].positive? && @color == :b)
+    return true if (transition[1].abs == 2 && (!@first_move || @moves.empty?)) ||
+                   (transition[1].negative? && @color == :w) || (transition[1].positive? && @color == :b)
 
     false
   end
+  # rubocop:enable Metrics/CyclomaticComplexity
 
   def get_moves(pieces, move, transition)
     @moves.push(move.dup) unless move.any?(&:zero?) || move.any? { |e| e > 8 } ||
