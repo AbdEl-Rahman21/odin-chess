@@ -100,13 +100,13 @@ class Game
     while move.instance_of?(String)
       @engine.create_board(@players[0], @players[1], all_pieces)
 
-      sleep(3) if @players[0].instance_of?(Computer)
-
       piece = get_valid_piece
 
       return if command?(piece)
 
       @engine.create_board(@players[0], @players[1], all_pieces, piece)
+
+      sleep(1.5) if @players[0].instance_of?(Computer)
 
       move = get_valid_move(piece)
     end

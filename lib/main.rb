@@ -139,7 +139,7 @@ def end_game(game)
       puts Rainbow('Black Resigned: 1 - 0').color(:green)
     end
   when 'CM'
-    if game.players[0].color == :w
+    if game.players[1].color == :w
       puts Rainbow('Checkmate: 1 - 0').color(:green)
     else
       puts Rainbow('Checkmate: 0 - 1').color(:green)
