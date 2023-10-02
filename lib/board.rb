@@ -57,7 +57,7 @@ class Board
   def tile_status(index, pieces, piece_to_move)
     pieces.each { |piece| return piece_color(piece) if piece.coordinates == @tiles[index] }
 
-    return "\s" if piece_to_move == ''
+    return "\s" if piece_to_move.instance_of?(String)
 
     return Rainbow("\u25CF").color(:crimson) if piece_to_move.moves.include?(@tiles[index])
 
@@ -89,7 +89,7 @@ class Board
   # rubocop:enable Metrics/CyclomaticComplexity
 
   def tile_color(index, pieces, piece_to_move)
-    unless piece_to_move == ''
+    unless piece_to_move.instance_of?(String)
       pieces.each do |piece|
         return :crimson if piece.coordinates == @tiles[index] && piece_to_move.moves.include?(piece.coordinates)
       end

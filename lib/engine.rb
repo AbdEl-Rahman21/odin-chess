@@ -181,15 +181,15 @@ class Engine
   # rubocop:enable Metrics/CyclomaticComplexity
 
   def fivefold_repetition?(pieces)
-    return true if @board_history.count { |board| same_board?(board, pieces) } == 4
+    # rubocop:disable Security/MarshalLoad
+    return true if @board_history.count { |board| same_board?(Marshal.load(board), pieces) } == 4
+    # rubocop:enable Security/MarshalLoad
 
     false
   end
 
   def same_board?(board, pieces)
-    # rubocop:disable Security/MarshalLoad
-    Marshal.load(board).each_with_index { |piece, i| return false unless piece.moves == pieces[i].moves }
-    # rubocop:enable Security/MarshalLoad
+    pieces.each { |piece| return false unless board.include?(piece) }
 
     true
   end

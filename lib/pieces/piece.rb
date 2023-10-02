@@ -2,6 +2,8 @@
 
 # Superclass for chess pieces
 class Piece
+  include Comparable
+
   attr_reader :coordinates, :color, :moves, :first_move
 
   def initialize(coordinates, color)
@@ -29,5 +31,9 @@ class Piece
     @coordinates = move
 
     @first_move = false unless test
+  end
+
+  def <=>(other)
+    @moves <=> other.moves
   end
 end
