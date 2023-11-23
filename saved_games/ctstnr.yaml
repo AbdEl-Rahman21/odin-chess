@@ -1,0 +1,479 @@
+--- !ruby/object:Game
+players:
+- !ruby/object:Human
+  color: :w
+  pieces:
+  - !ruby/object:Pawn
+    coordinates:
+    - 1
+    - 2
+    color: :w
+    moves:
+    - - 1
+      - 3
+    - - 1
+      - 4
+    first_move: true
+    jump_move: false
+  - !ruby/object:Pawn
+    coordinates:
+    - 2
+    - 2
+    color: :w
+    moves:
+    - - 2
+      - 3
+    - - 2
+      - 4
+    first_move: true
+    jump_move: false
+  - !ruby/object:Pawn
+    coordinates:
+    - 3
+    - 2
+    color: :w
+    moves:
+    - - 3
+      - 3
+    - - 3
+      - 4
+    first_move: true
+    jump_move: false
+  - !ruby/object:Pawn
+    coordinates:
+    - 4
+    - 2
+    color: :w
+    moves:
+    - - 4
+      - 3
+    - - 4
+      - 4
+    first_move: true
+    jump_move: false
+  - !ruby/object:Pawn
+    coordinates:
+    - 5
+    - 2
+    color: :w
+    moves:
+    - - 5
+      - 3
+    - - 5
+      - 4
+    first_move: true
+    jump_move: false
+  - !ruby/object:Pawn
+    coordinates:
+    - 6
+    - 2
+    color: :w
+    moves: []
+    first_move: true
+    jump_move: false
+  - !ruby/object:Pawn
+    coordinates:
+    - 7
+    - 3
+    color: :w
+    moves:
+    - - 7
+      - 4
+    first_move: false
+    jump_move: false
+  - !ruby/object:Pawn
+    coordinates:
+    - 8
+    - 2
+    color: :w
+    moves:
+    - - 8
+      - 3
+    - - 8
+      - 4
+    first_move: true
+    jump_move: false
+  - !ruby/object:Rook
+    coordinates:
+    - 1
+    - 1
+    color: :w
+    moves: []
+    first_move: true
+  - !ruby/object:Knight
+    coordinates:
+    - 2
+    - 1
+    color: :w
+    moves:
+    - - 1
+      - 3
+    - - 3
+      - 3
+    first_move: true
+  - !ruby/object:Bishop
+    coordinates:
+    - 3
+    - 1
+    color: :w
+    moves: []
+    first_move: true
+  - !ruby/object:Queen
+    coordinates:
+    - 4
+    - 1
+    color: :w
+    moves: []
+    first_move: true
+  - !ruby/object:Knight
+    coordinates:
+    - 6
+    - 3
+    color: :w
+    moves:
+    - - 4
+      - 4
+    - - 5
+      - 5
+    - - 7
+      - 1
+    - - 7
+      - 5
+    - - 8
+      - 4
+    first_move: false
+  - !ruby/object:Bishop
+    coordinates:
+    - 7
+    - 2
+    color: :w
+    moves:
+    - - 6
+      - 1
+    - - 8
+      - 1
+    - - 8
+      - 3
+    first_move: false
+  - !ruby/object:King
+    coordinates:
+    - 5
+    - 1
+    color: :w
+    moves:
+    - - 6
+      - 1
+    - - 7
+      - 1
+    first_move: true
+- !ruby/object:Human
+  color: :b
+  pieces:
+  - !ruby/object:Pawn
+    coordinates:
+    - 1
+    - 7
+    color: :b
+    moves:
+    - - 1
+      - 6
+    - - 1
+      - 5
+    first_move: true
+    jump_move: false
+  - !ruby/object:Pawn
+    coordinates:
+    - 2
+    - 7
+    color: :b
+    moves:
+    - - 2
+      - 6
+    - - 2
+      - 5
+    first_move: true
+    jump_move: false
+  - !ruby/object:Pawn
+    coordinates:
+    - 3
+    - 7
+    color: :b
+    moves:
+    - - 3
+      - 6
+    - - 3
+      - 5
+    first_move: true
+    jump_move: false
+  - !ruby/object:Pawn
+    coordinates:
+    - 4
+    - 7
+    color: :b
+    moves:
+    - - 4
+      - 6
+    - - 4
+      - 5
+    first_move: true
+    jump_move: false
+  - !ruby/object:Pawn
+    coordinates:
+    - 5
+    - 7
+    color: :b
+    moves:
+    - - 5
+      - 6
+    - - 5
+      - 5
+    first_move: true
+    jump_move: false
+  - !ruby/object:Pawn
+    coordinates:
+    - 6
+    - 7
+    color: :b
+    moves:
+    - - 6
+      - 6
+    - - 6
+      - 5
+    first_move: true
+    jump_move: false
+  - !ruby/object:Pawn
+    coordinates:
+    - 7
+    - 6
+    color: :b
+    moves:
+    - - 7
+      - 5
+    first_move: false
+    jump_move: false
+  - !ruby/object:Pawn
+    coordinates:
+    - 8
+    - 7
+    color: :b
+    moves: []
+    first_move: true
+    jump_move: false
+  - !ruby/object:Rook
+    coordinates:
+    - 1
+    - 8
+    color: :b
+    moves: []
+    first_move: true
+  - !ruby/object:Knight
+    coordinates:
+    - 2
+    - 8
+    color: :b
+    moves:
+    - - 1
+      - 6
+    - - 3
+      - 6
+    first_move: true
+  - !ruby/object:Bishop
+    coordinates:
+    - 3
+    - 8
+    color: :b
+    moves: []
+    first_move: true
+  - !ruby/object:Queen
+    coordinates:
+    - 4
+    - 8
+    color: :b
+    moves: []
+    first_move: true
+  - !ruby/object:Knight
+    coordinates:
+    - 8
+    - 6
+    color: :b
+    moves:
+    - - 6
+      - 5
+    - - 7
+      - 4
+    - - 7
+      - 8
+    first_move: false
+  - !ruby/object:Bishop
+    coordinates:
+    - 7
+    - 7
+    color: :b
+    moves:
+    - - 6
+      - 6
+    - - 5
+      - 5
+    - - 4
+      - 4
+    - - 3
+      - 3
+    - - 2
+      - 2
+    - - 6
+      - 8
+    - - 8
+      - 8
+    first_move: false
+  - !ruby/object:King
+    coordinates:
+    - 5
+    - 8
+    color: :b
+    moves:
+    - - 6
+      - 8
+    - - 7
+      - 8
+    first_move: true
+engine: !ruby/object:Engine
+  counter75: 5
+  board_history:
+  - "\x04\b[#o:\tPawn\n:\x11@coordinates[\ai\x06i\a:\v@color:\x06w:\v@moves[\a[\ai\x06i\b[\ai\x06i\t:\x10@first_moveT:\x0F@jump_moveFo;\0\n;\x06[\ai\ai\a;\a;\b;\t[\a[\ai\ai\b[\ai\ai\t;\nT;\vFo;\0\n;\x06[\ai\bi\a;\a;\b;\t[\a[\ai\bi\b[\ai\bi\t;\nT;\vFo;\0\n;\x06[\ai\ti\a;\a;\b;\t[\a[\ai\ti\b[\ai\ti\t;\nT;\vFo;\0\n;\x06[\ai\ni\a;\a;\b;\t[\a[\ai\ni\b[\ai\ni\t;\nT;\vFo;\0\n;\x06[\ai\vi\a;\a;\b;\t[\a[\ai\vi\b[\ai\vi\t;\nT;\vFo;\0\n;\x06[\ai\fi\b;\a;\b;\t[\a[\ai\fi\b[\ai\fi\t;\nF;\vFo;\0\n;\x06[\ai\ri\a;\a;\b;\t[\a[\ai\ri\b[\ai\ri\t;\nT;\vFo:\tRook\t;\x06[\ai\x06i\x06;\a;\b;\t[\0;\nTo:\vKnight\t;\x06[\ai\ai\x06;\a;\b;\t[\a[\ai\x06i\b[\ai\bi\b;\nTo:\vBishop\t;\x06[\ai\bi\x06;\a;\b;\t[\0;\nTo:\nQueen\t;\x06[\ai\ti\x06;\a;\b;\t[\0;\nTo;\r\t;\x06[\ai\fi\x06;\a;\b;\t[\a[\ai\vi\b[\ai\ri\b;\nTo;\x0E\t;\x06[\ai\vi\x06;\a;\b;\t[\0;\nTo:\tKing\t;\x06[\ai\ni\x06;\a;\b;\t[\0;\nTo;\0\n;\x06[\ai\x06i\f;\a:\x06b;\t[\a[\ai\x06i\v[\ai\x06i\n;\nT;\vFo;\0\n;\x06[\ai\ai\f;\a;\x11;\t[\a[\ai\ai\v[\ai\ai\n;\nT;\vFo;\0\n;\x06[\ai\bi\f;\a;\x11;\t[\a[\ai\bi\v[\ai\bi\n;\nT;\vFo;\0\n;\x06[\ai\ti\f;\a;\x11;\t[\a[\ai\ti\v[\ai\ti\n;\nT;\vFo;\0\n;\x06[\ai\ni\f;\a;\x11;\t[\a[\ai\ni\v[\ai\ni\n;\nT;\vFo;\0\n;\x06[\ai\vi\f;\a;\x11;\t[\a[\ai\vi\v[\ai\vi\n;\nT;\vFo;\0\n;\x06[\ai\fi\f;\a;\x11;\t[\a[\ai\fi\v[\ai\fi\n;\nT;\vFo;\0\n;\x06[\ai\ri\f;\a;\x11;\t[\a[\ai\ri\v[\ai\ri\n;\nT;\vFo;\f\t;\x06[\ai\x06i\r;\a;\x11;\t[\0;\nTo;\r\t;\x06[\ai\ai\r;\a;\x11;\t[\a[\ai\x06i\v[\ai\bi\v;\nTo;\x0E\t;\x06[\ai\bi\r;\a;\x11;\t[\0;\nTo;\x0F\t;\x06[\ai\ti\r;\a;\x11;\t[\0;\nTo;\r\t;\x06[\ai\fi\r;\a;\x11;\t[\a[\ai\vi\v[\ai\ri\v;\nTo;\x0E\t;\x06[\ai\vi\r;\a;\x11;\t[\0;\nTo;\x10\t;\x06[\ai\ni\r;\a;\x11;\t[\0;\nT"
+  - "\x04\b[#o:\tPawn\n:\x11@coordinates[\ai\x06i\f:\v@color:\x06b:\v@moves[\a[\ai\x06i\v[\ai\x06i\n:\x10@first_moveT:\x0F@jump_moveFo;\0\n;\x06[\ai\ai\f;\a;\b;\t[\a[\ai\ai\v[\ai\ai\n;\nT;\vFo;\0\n;\x06[\ai\bi\f;\a;\b;\t[\a[\ai\bi\v[\ai\bi\n;\nT;\vFo;\0\n;\x06[\ai\ti\f;\a;\b;\t[\a[\ai\ti\v[\ai\ti\n;\nT;\vFo;\0\n;\x06[\ai\ni\f;\a;\b;\t[\a[\ai\ni\v[\ai\ni\n;\nT;\vFo;\0\n;\x06[\ai\vi\f;\a;\b;\t[\a[\ai\vi\v[\ai\vi\n;\nT;\vFo;\0\n;\x06[\ai\fi\v;\a;\b;\t[\a[\ai\fi\v[\ai\fi\n;\nF;\vFo;\0\n;\x06[\ai\ri\f;\a;\b;\t[\a[\ai\ri\v[\ai\ri\n;\nT;\vFo:\tRook\t;\x06[\ai\x06i\r;\a;\b;\t[\0;\nTo:\vKnight\t;\x06[\ai\ai\r;\a;\b;\t[\a[\ai\x06i\v[\ai\bi\v;\nTo:\vBishop\t;\x06[\ai\bi\r;\a;\b;\t[\0;\nTo:\nQueen\t;\x06[\ai\ti\r;\a;\b;\t[\0;\nTo;\r\t;\x06[\ai\fi\r;\a;\b;\t[\a[\ai\vi\v[\ai\ri\v;\nTo;\x0E\t;\x06[\ai\vi\r;\a;\b;\t[\0;\nTo:\tKing\t;\x06[\ai\ni\r;\a;\b;\t[\0;\nTo;\0\n;\x06[\ai\x06i\a;\a:\x06w;\t[\a[\ai\x06i\b[\ai\x06i\t;\nT;\vFo;\0\n;\x06[\ai\ai\a;\a;\x11;\t[\a[\ai\ai\b[\ai\ai\t;\nT;\vFo;\0\n;\x06[\ai\bi\a;\a;\x11;\t[\a[\ai\bi\b[\ai\bi\t;\nT;\vFo;\0\n;\x06[\ai\ti\a;\a;\x11;\t[\a[\ai\ti\b[\ai\ti\t;\nT;\vFo;\0\n;\x06[\ai\ni\a;\a;\x11;\t[\a[\ai\ni\b[\ai\ni\t;\nT;\vFo;\0\n;\x06[\ai\vi\a;\a;\x11;\t[\a[\ai\vi\b[\ai\vi\t;\nT;\vFo;\0\n;\x06[\ai\fi\b;\a;\x11;\t[\x06[\ai\fi\t;\nF;\vFo;\0\n;\x06[\ai\ri\a;\a;\x11;\t[\a[\ai\ri\b[\ai\ri\t;\nT;\vFo;\f\t;\x06[\ai\x06i\x06;\a;\x11;\t[\0;\nTo;\r\t;\x06[\ai\ai\x06;\a;\x11;\t[\a[\ai\x06i\b[\ai\bi\b;\nTo;\x0E\t;\x06[\ai\bi\x06;\a;\x11;\t[\0;\nTo;\x0F\t;\x06[\ai\ti\x06;\a;\x11;\t[\0;\nTo;\r\t;\x06[\ai\fi\x06;\a;\x11;\t[\a[\ai\vi\b[\ai\ri\b;\nTo;\x0E\t;\x06[\ai\vi\x06;\a;\x11;\t[\a[\ai\fi\a[\ai\ri\b;\nTo;\x10\t;\x06[\ai\ni\x06;\a;\x11;\t[\0;\nT"
+  - "\x04\b[#o:\tPawn\n:\x11@coordinates[\ai\x06i\a:\v@color:\x06w:\v@moves[\a[\ai\x06i\b[\ai\x06i\t:\x10@first_moveT:\x0F@jump_moveFo;\0\n;\x06[\ai\ai\a;\a;\b;\t[\a[\ai\ai\b[\ai\ai\t;\nT;\vFo;\0\n;\x06[\ai\bi\a;\a;\b;\t[\a[\ai\bi\b[\ai\bi\t;\nT;\vFo;\0\n;\x06[\ai\ti\a;\a;\b;\t[\a[\ai\ti\b[\ai\ti\t;\nT;\vFo;\0\n;\x06[\ai\ni\a;\a;\b;\t[\a[\ai\ni\b[\ai\ni\t;\nT;\vFo;\0\n;\x06[\ai\vi\a;\a;\b;\t[\a[\ai\vi\b[\ai\vi\t;\nT;\vFo;\0\n;\x06[\ai\fi\b;\a;\b;\t[\x06[\ai\fi\t;\nF;\vFo;\0\n;\x06[\ai\ri\a;\a;\b;\t[\a[\ai\ri\b[\ai\ri\t;\nT;\vFo:\tRook\t;\x06[\ai\x06i\x06;\a;\b;\t[\0;\nTo:\vKnight\t;\x06[\ai\ai\x06;\a;\b;\t[\a[\ai\x06i\b[\ai\bi\b;\nTo:\vBishop\t;\x06[\ai\bi\x06;\a;\b;\t[\0;\nTo:\nQueen\t;\x06[\ai\ti\x06;\a;\b;\t[\0;\nTo;\r\t;\x06[\ai\fi\x06;\a;\b;\t[\a[\ai\vi\b[\ai\ri\b;\nTo;\x0E\t;\x06[\ai\fi\a;\a;\b;\t[\a[\ai\fi\a[\ai\ri\b;\nFo:\tKing\t;\x06[\ai\ni\x06;\a;\b;\t[\0;\nTo;\0\n;\x06[\ai\x06i\f;\a:\x06b;\t[\a[\ai\x06i\v[\ai\x06i\n;\nT;\vFo;\0\n;\x06[\ai\ai\f;\a;\x11;\t[\a[\ai\ai\v[\ai\ai\n;\nT;\vFo;\0\n;\x06[\ai\bi\f;\a;\x11;\t[\a[\ai\bi\v[\ai\bi\n;\nT;\vFo;\0\n;\x06[\ai\ti\f;\a;\x11;\t[\a[\ai\ti\v[\ai\ti\n;\nT;\vFo;\0\n;\x06[\ai\ni\f;\a;\x11;\t[\a[\ai\ni\v[\ai\ni\n;\nT;\vFo;\0\n;\x06[\ai\vi\f;\a;\x11;\t[\a[\ai\vi\v[\ai\vi\n;\nT;\vFo;\0\n;\x06[\ai\fi\v;\a;\x11;\t[\x06[\ai\fi\n;\nF;\vFo;\0\n;\x06[\ai\ri\f;\a;\x11;\t[\a[\ai\ri\v[\ai\ri\n;\nT;\vFo;\f\t;\x06[\ai\x06i\r;\a;\x11;\t[\0;\nTo;\r\t;\x06[\ai\ai\r;\a;\x11;\t[\a[\ai\x06i\v[\ai\bi\v;\nTo;\x0E\t;\x06[\ai\bi\r;\a;\x11;\t[\0;\nTo;\x0F\t;\x06[\ai\ti\r;\a;\x11;\t[\0;\nTo;\r\t;\x06[\ai\fi\r;\a;\x11;\t[\a[\ai\vi\v[\ai\ri\v;\nTo;\x0E\t;\x06[\ai\vi\r;\a;\x11;\t[\a[\ai\fi\f[\ai\ri\v;\nTo;\x10\t;\x06[\ai\ni\r;\a;\x11;\t[\0;\nT"
+  - "\x04\b[#o:\tPawn\n:\x11@coordinates[\ai\x06i\f:\v@color:\x06b:\v@moves[\a[\ai\x06i\v[\ai\x06i\n:\x10@first_moveT:\x0F@jump_moveFo;\0\n;\x06[\ai\ai\f;\a;\b;\t[\a[\ai\ai\v[\ai\ai\n;\nT;\vFo;\0\n;\x06[\ai\bi\f;\a;\b;\t[\a[\ai\bi\v[\ai\bi\n;\nT;\vFo;\0\n;\x06[\ai\ti\f;\a;\b;\t[\a[\ai\ti\v[\ai\ti\n;\nT;\vFo;\0\n;\x06[\ai\ni\f;\a;\b;\t[\a[\ai\ni\v[\ai\ni\n;\nT;\vFo;\0\n;\x06[\ai\vi\f;\a;\b;\t[\a[\ai\vi\v[\ai\vi\n;\nT;\vFo;\0\n;\x06[\ai\fi\v;\a;\b;\t[\x06[\ai\fi\n;\nF;\vFo;\0\n;\x06[\ai\ri\f;\a;\b;\t[\a[\ai\ri\v[\ai\ri\n;\nT;\vFo:\tRook\t;\x06[\ai\x06i\r;\a;\b;\t[\0;\nTo:\vKnight\t;\x06[\ai\ai\r;\a;\b;\t[\a[\ai\x06i\v[\ai\bi\v;\nTo:\vBishop\t;\x06[\ai\bi\r;\a;\b;\t[\0;\nTo:\nQueen\t;\x06[\ai\ti\r;\a;\b;\t[\0;\nTo;\r\t;\x06[\ai\fi\r;\a;\b;\t[\a[\ai\vi\v[\ai\ri\v;\nTo;\x0E\t;\x06[\ai\fi\f;\a;\b;\t[\a[\ai\fi\f[\ai\ri\v;\nFo:\tKing\t;\x06[\ai\ni\r;\a;\b;\t[\0;\nTo;\0\n;\x06[\ai\x06i\a;\a:\x06w;\t[\a[\ai\x06i\b[\ai\x06i\t;\nT;\vFo;\0\n;\x06[\ai\ai\a;\a;\x11;\t[\a[\ai\ai\b[\ai\ai\t;\nT;\vFo;\0\n;\x06[\ai\bi\a;\a;\x11;\t[\a[\ai\bi\b[\ai\bi\t;\nT;\vFo;\0\n;\x06[\ai\ti\a;\a;\x11;\t[\a[\ai\ti\b[\ai\ti\t;\nT;\vFo;\0\n;\x06[\ai\ni\a;\a;\x11;\t[\a[\ai\ni\b[\ai\ni\t;\nT;\vFo;\0\n;\x06[\ai\vi\a;\a;\x11;\t[\a[\ai\vi\b[\ai\vi\t;\nT;\vFo;\0\n;\x06[\ai\fi\b;\a;\x11;\t[\x06[\ai\fi\t;\nF;\vFo;\0\n;\x06[\ai\ri\a;\a;\x11;\t[\a[\ai\ri\b[\ai\ri\t;\nT;\vFo;\f\t;\x06[\ai\x06i\x06;\a;\x11;\t[\0;\nTo;\r\t;\x06[\ai\ai\x06;\a;\x11;\t[\a[\ai\x06i\b[\ai\bi\b;\nTo;\x0E\t;\x06[\ai\bi\x06;\a;\x11;\t[\0;\nTo;\x0F\t;\x06[\ai\ti\x06;\a;\x11;\t[\0;\nTo;\r\t;\x06[\ai\fi\x06;\a;\x11;\t[\a[\ai\vi\b[\ai\ri\b;\nTo;\x0E\t;\x06[\ai\fi\a;\a;\x11;\t[\r[\ai\vi\x06[\ai\vi\b[\ai\ni\t[\ai\ti\n[\ai\bi\v[\ai\ai\f[\ai\ri\x06[\ai\ri\b;\nFo;\x10\t;\x06[\ai\ni\x06;\a;\x11;\t[\x06[\ai\vi\x06;\nT"
+  - "\x04\b[#o:\tPawn\n:\x11@coordinates[\ai\x06i\a:\v@color:\x06w:\v@moves[\a[\ai\x06i\b[\ai\x06i\t:\x10@first_moveT:\x0F@jump_moveFo;\0\n;\x06[\ai\ai\a;\a;\b;\t[\a[\ai\ai\b[\ai\ai\t;\nT;\vFo;\0\n;\x06[\ai\bi\a;\a;\b;\t[\a[\ai\bi\b[\ai\bi\t;\nT;\vFo;\0\n;\x06[\ai\ti\a;\a;\b;\t[\a[\ai\ti\b[\ai\ti\t;\nT;\vFo;\0\n;\x06[\ai\ni\a;\a;\b;\t[\a[\ai\ni\b[\ai\ni\t;\nT;\vFo;\0\n;\x06[\ai\vi\a;\a;\b;\t[\a[\ai\vi\b[\ai\vi\t;\nT;\vFo;\0\n;\x06[\ai\fi\b;\a;\b;\t[\x06[\ai\fi\t;\nF;\vFo;\0\n;\x06[\ai\ri\a;\a;\b;\t[\a[\ai\ri\b[\ai\ri\t;\nT;\vFo:\tRook\t;\x06[\ai\x06i\x06;\a;\b;\t[\0;\nTo:\vKnight\t;\x06[\ai\ai\x06;\a;\b;\t[\a[\ai\x06i\b[\ai\bi\b;\nTo:\vBishop\t;\x06[\ai\bi\x06;\a;\b;\t[\0;\nTo:\nQueen\t;\x06[\ai\ti\x06;\a;\b;\t[\0;\nTo;\r\t;\x06[\ai\vi\b;\a;\b;\t[\a[\ai\vi\b[\ai\ri\b;\nFo;\x0E\t;\x06[\ai\fi\a;\a;\b;\t[\r[\ai\vi\x06[\ai\vi\b[\ai\ni\t[\ai\ti\n[\ai\bi\v[\ai\ai\f[\ai\ri\x06[\ai\ri\b;\nFo:\tKing\t;\x06[\ai\ni\x06;\a;\b;\t[\x06[\ai\vi\x06;\nTo;\0\n;\x06[\ai\x06i\f;\a:\x06b;\t[\a[\ai\x06i\v[\ai\x06i\n;\nT;\vFo;\0\n;\x06[\ai\ai\f;\a;\x11;\t[\a[\ai\ai\v[\ai\ai\n;\nT;\vFo;\0\n;\x06[\ai\bi\f;\a;\x11;\t[\a[\ai\bi\v[\ai\bi\n;\nT;\vFo;\0\n;\x06[\ai\ti\f;\a;\x11;\t[\a[\ai\ti\v[\ai\ti\n;\nT;\vFo;\0\n;\x06[\ai\ni\f;\a;\x11;\t[\a[\ai\ni\v[\ai\ni\n;\nT;\vFo;\0\n;\x06[\ai\vi\f;\a;\x11;\t[\a[\ai\vi\v[\ai\vi\n;\nT;\vFo;\0\n;\x06[\ai\fi\v;\a;\x11;\t[\x06[\ai\fi\n;\nF;\vFo;\0\n;\x06[\ai\ri\f;\a;\x11;\t[\a[\ai\ri\v[\ai\ri\n;\nT;\vFo;\f\t;\x06[\ai\x06i\r;\a;\x11;\t[\0;\nTo;\r\t;\x06[\ai\ai\r;\a;\x11;\t[\a[\ai\x06i\v[\ai\bi\v;\nTo;\x0E\t;\x06[\ai\bi\r;\a;\x11;\t[\0;\nTo;\x0F\t;\x06[\ai\ti\r;\a;\x11;\t[\0;\nTo;\r\t;\x06[\ai\fi\r;\a;\x11;\t[\a[\ai\vi\v[\ai\ri\v;\nTo;\x0E\t;\x06[\ai\fi\f;\a;\x11;\t[\r[\ai\vi\v[\ai\ni\n[\ai\ti\t[\ai\bi\b[\ai\ai\a[\ai\vi\r[\ai\ri\v[\ai\ri\r;\nFo;\x10\t;\x06[\ai\ni\r;\a;\x11;\t[\x06[\ai\vi\r;\nT"
+  - "\x04\b[#o:\tPawn\n:\x11@coordinates[\ai\x06i\f:\v@color:\x06b:\v@moves[\a[\ai\x06i\v[\ai\x06i\n:\x10@first_moveT:\x0F@jump_moveFo;\0\n;\x06[\ai\ai\f;\a;\b;\t[\a[\ai\ai\v[\ai\ai\n;\nT;\vFo;\0\n;\x06[\ai\bi\f;\a;\b;\t[\a[\ai\bi\v[\ai\bi\n;\nT;\vFo;\0\n;\x06[\ai\ti\f;\a;\b;\t[\a[\ai\ti\v[\ai\ti\n;\nT;\vFo;\0\n;\x06[\ai\ni\f;\a;\b;\t[\a[\ai\ni\v[\ai\ni\n;\nT;\vFo;\0\n;\x06[\ai\vi\f;\a;\b;\t[\a[\ai\vi\v[\ai\vi\n;\nT;\vFo;\0\n;\x06[\ai\fi\v;\a;\b;\t[\x06[\ai\fi\n;\nF;\vFo;\0\n;\x06[\ai\ri\f;\a;\b;\t[\a[\ai\ri\v[\ai\ri\n;\nT;\vFo:\tRook\t;\x06[\ai\x06i\r;\a;\b;\t[\0;\nTo:\vKnight\t;\x06[\ai\ai\r;\a;\b;\t[\a[\ai\x06i\v[\ai\bi\v;\nTo:\vBishop\t;\x06[\ai\bi\r;\a;\b;\t[\0;\nTo:\nQueen\t;\x06[\ai\ti\r;\a;\b;\t[\0;\nTo;\r\t;\x06[\ai\ri\v;\a;\b;\t[\a[\ai\vi\v[\ai\ri\v;\nFo;\x0E\t;\x06[\ai\fi\f;\a;\b;\t[\r[\ai\vi\v[\ai\ni\n[\ai\ti\t[\ai\bi\b[\ai\ai\a[\ai\vi\r[\ai\ri\v[\ai\ri\r;\nFo:\tKing\t;\x06[\ai\ni\r;\a;\b;\t[\x06[\ai\vi\r;\nTo;\0\n;\x06[\ai\x06i\a;\a:\x06w;\t[\a[\ai\x06i\b[\ai\x06i\t;\nT;\vFo;\0\n;\x06[\ai\ai\a;\a;\x11;\t[\a[\ai\ai\b[\ai\ai\t;\nT;\vFo;\0\n;\x06[\ai\bi\a;\a;\x11;\t[\a[\ai\bi\b[\ai\bi\t;\nT;\vFo;\0\n;\x06[\ai\ti\a;\a;\x11;\t[\a[\ai\ti\b[\ai\ti\t;\nT;\vFo;\0\n;\x06[\ai\ni\a;\a;\x11;\t[\a[\ai\ni\b[\ai\ni\t;\nT;\vFo;\0\n;\x06[\ai\vi\a;\a;\x11;\t[\0;\nT;\vFo;\0\n;\x06[\ai\fi\b;\a;\x11;\t[\x06[\ai\fi\t;\nF;\vFo;\0\n;\x06[\ai\ri\a;\a;\x11;\t[\a[\ai\ri\b[\ai\ri\t;\nT;\vFo;\f\t;\x06[\ai\x06i\x06;\a;\x11;\t[\0;\nTo;\r\t;\x06[\ai\ai\x06;\a;\x11;\t[\a[\ai\x06i\b[\ai\bi\b;\nTo;\x0E\t;\x06[\ai\bi\x06;\a;\x11;\t[\0;\nTo;\x0F\t;\x06[\ai\ti\x06;\a;\x11;\t[\0;\nTo;\r\t;\x06[\ai\vi\b;\a;\x11;\t[\n[\ai\ti\t[\ai\ni\n[\ai\fi\x06[\ai\fi\n[\ai\ri\t;\nFo;\x0E\t;\x06[\ai\fi\a;\a;\x11;\t[\b[\ai\vi\x06[\ai\ri\x06[\ai\ri\b;\nFo;\x10\t;\x06[\ai\ni\x06;\a;\x11;\t[\a[\ai\vi\x06[\ai\fi\x06;\nT"
+  board: !ruby/object:Board
+    tiles:
+    - - 1
+      - 8
+    - - 2
+      - 8
+    - - 3
+      - 8
+    - - 4
+      - 8
+    - - 5
+      - 8
+    - - 6
+      - 8
+    - - 7
+      - 8
+    - - 8
+      - 8
+    - - 1
+      - 7
+    - - 2
+      - 7
+    - - 3
+      - 7
+    - - 4
+      - 7
+    - - 5
+      - 7
+    - - 6
+      - 7
+    - - 7
+      - 7
+    - - 8
+      - 7
+    - - 1
+      - 6
+    - - 2
+      - 6
+    - - 3
+      - 6
+    - - 4
+      - 6
+    - - 5
+      - 6
+    - - 6
+      - 6
+    - - 7
+      - 6
+    - - 8
+      - 6
+    - - 1
+      - 5
+    - - 2
+      - 5
+    - - 3
+      - 5
+    - - 4
+      - 5
+    - - 5
+      - 5
+    - - 6
+      - 5
+    - - 7
+      - 5
+    - - 8
+      - 5
+    - - 1
+      - 4
+    - - 2
+      - 4
+    - - 3
+      - 4
+    - - 4
+      - 4
+    - - 5
+      - 4
+    - - 6
+      - 4
+    - - 7
+      - 4
+    - - 8
+      - 4
+    - - 1
+      - 3
+    - - 2
+      - 3
+    - - 3
+      - 3
+    - - 4
+      - 3
+    - - 5
+      - 3
+    - - 6
+      - 3
+    - - 7
+      - 3
+    - - 8
+      - 3
+    - - 1
+      - 2
+    - - 2
+      - 2
+    - - 3
+      - 2
+    - - 4
+      - 2
+    - - 5
+      - 2
+    - - 6
+      - 2
+    - - 7
+      - 2
+    - - 8
+      - 2
+    - - 1
+      - 1
+    - - 2
+      - 1
+    - - 3
+      - 1
+    - - 4
+      - 1
+    - - 5
+      - 1
+    - - 6
+      - 1
+    - - 7
+      - 1
+    - - 8
+      - 1
+turn_counter: 6
+state:
