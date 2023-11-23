@@ -26,15 +26,6 @@ class Pawn < Piece
     end
   end
 
-  # rubocop:disable Metrics/CyclomaticComplexity
-  def skip?(transition)
-    return true if (transition[1].abs == 2 && (!@first_move || @moves.empty?)) ||
-                   (transition[1].negative? && @color == :w) || (transition[1].positive? && @color == :b)
-
-    false
-  end
-  # rubocop:enable Metrics/CyclomaticComplexity
-
   def get_moves(pieces, move, transition)
     @moves.push(move.dup) unless move.any?(&:zero?) || move.any? { |e| e > 8 } ||
                                  move_blocked?(pieces, move, transition)
@@ -64,7 +55,7 @@ class Pawn < Piece
 
   def in_passing(pieces)
     pieces.each do |piece|
-      next unless in_passing_helper(piece)
+      next unless pass?(piece)
 
       if @color == :w
         @moves.push([piece.coordinates[0], piece.coordinates[1] + 1])
@@ -76,11 +67,25 @@ class Pawn < Piece
     end
   end
 
-  def in_passing_helper(piece)
+  private
+
+  # rubocop:disable Metrics/CyclomaticComplexity
+  def skip?(transition)
+    return true if (transition[1].abs == 2 && (!@first_move || @moves.empty?)) ||
+                   (transition[1].negative? && @color == :w) || (transition[1].positive? && @color == :b)
+
+    false
+  end
+  # rubocop:enable Metrics/CyclomaticComplexity
+
+  def pass?(piece)
     tiles = [[@coordinates[0] + 1, @coordinates[1]], [@coordinates[0] - 1, @coordinates[1]]]
 
-    return true if tiles.include?(piece.coordinates) && piece.instance_of?(Pawn) && piece.jump_move &&
-                   piece.color != @color
+    begin
+      return true if tiles.include?(piece.coordinates) && piece.jump_move && piece.color != @color
+    rescue NoMethodError
+      return false
+    end
 
     false
   end

@@ -133,10 +133,20 @@ describe Pawn do
         end
       end
 
+      context 'when there is a piece in front of it' do
+        let(:obstacle_piece) { double('pawn', coordinates: [2, 3]) }
+
+        it 'call #get_moves thrice' do
+          pieces = [obstacle_piece]
+          expect(pawn_moves).to receive(:get_moves).thrice
+          pawn_moves.update_moves(pieces)
+        end
+      end
+
       context "when there isn't other pieces to the side" do
         it 'gets all possible forward moves' do
           pieces = []
-          moves = [[2, 4], [2, 3]]
+          moves = [[2, 3], [2, 4]]
           expect { pawn_moves.update_moves(pieces) }.to change { pawn_moves.moves }.to(moves)
         end
       end
@@ -147,7 +157,7 @@ describe Pawn do
 
         it 'gets all possible moves of pawn' do
           pieces = [white_piece, black_piece]
-          moves = [[2, 4], [2, 3], [3, 3]]
+          moves = [[2, 3], [2, 4], [3, 3]]
           expect { pawn_moves.update_moves(pieces) }.to change { pawn_moves.moves }.to(moves)
         end
       end
@@ -168,10 +178,20 @@ describe Pawn do
         end
       end
 
+      context 'when there is a piece in front of it' do
+        let(:obstacle_piece) { double('pawn', coordinates: [2, 6]) }
+
+        it 'call #get_moves thrice' do
+          pieces = [obstacle_piece]
+          expect(pawn_moves).to receive(:get_moves).thrice
+          pawn_moves.update_moves(pieces)
+        end
+      end
+
       context "when there isn't other pieces to the side" do
         it 'gets all possible forward moves' do
           pieces = []
-          moves = [[2, 5], [2, 6]]
+          moves = [[2, 6], [2, 5]]
           expect { pawn_moves.update_moves(pieces) }.to change { pawn_moves.moves }.to(moves)
         end
       end
@@ -182,9 +202,84 @@ describe Pawn do
 
         it 'gets all possible moves of pawn' do
           pieces = [white_piece, black_piece]
-          moves = [[1, 6], [2, 5], [2, 6]]
+          moves = [[2, 6], [2, 5], [1, 6]]
           expect { pawn_moves.update_moves(pieces) }.to change { pawn_moves.moves }.to(moves)
         end
+      end
+    end
+  end
+
+  describe '#in_passing' do
+    subject(:pawn_pass) { described_class.new([2, 4], :w) }
+
+    context "when there isn't a piece to the side" do
+      it "doesn't add the move" do
+        pieces = [pawn_pass]
+        expect { pawn_pass.in_passing(pieces) }.to_not(change { pawn_pass.moves })
+      end
+    end
+
+    context "when the piece didn't jump" do
+      let(:pawn_jump) { double('pawn', coordinates: [3, 4], jump_move: false) }
+
+      it "doesn't add the move" do
+        pieces = [pawn_pass, pawn_jump]
+        expect { pawn_pass.in_passing(pieces) }.to_not(change { pawn_pass.moves })
+      end
+    end
+
+    context 'when the piece is the same color' do
+      let(:pawn_jump) { double('pawn', coordinates: [3, 4], color: :w, jump_move: true) }
+
+      it "doesn't add the move" do
+        pieces = [pawn_pass, pawn_jump]
+        expect { pawn_pass.in_passing(pieces) }.to_not(change { pawn_pass.moves })
+      end
+    end
+
+    context 'when the move is valid (white)' do
+      let(:pawn_jump) { double('pawn', coordinates: [3, 4], color: :b, jump_move: true) }
+
+      it 'adds the move' do
+        pieces = [pawn_pass, pawn_jump]
+        new_moves = [[3, 5]]
+        expect { pawn_pass.in_passing(pieces) }.to change { pawn_pass.moves }.to(new_moves)
+      end
+    end
+
+    context 'when the move is valid (black)' do
+      subject(:pawn_pass) { described_class.new([2, 4], :b) }
+      let(:pawn_jump) { double('pawn', coordinates: [3, 4], color: :w, jump_move: true) }
+
+      it 'adds the move' do
+        pieces = [pawn_pass, pawn_jump]
+        new_moves = [[3, 3]]
+        expect { pawn_pass.in_passing(pieces) }.to change { pawn_pass.moves }.to(new_moves)
+      end
+    end
+  end
+
+  describe '#move_piece' do
+    subject(:pawn_move) { described_class.new([2, 4], :w) }
+
+    context 'when it is a test move' do
+      it "doesn't change @first_move" do
+        move = [2, 5]
+        expect { pawn_move.move_piece(move, test: true) }.to_not(change { pawn_move.first_move })
+      end
+    end
+
+    context "when it isn't a test move" do
+      it 'changes @first_move' do
+        move = [2, 5]
+        expect { pawn_move.move_piece(move) }.to change { pawn_move.first_move }.to(false)
+      end
+    end
+
+    context "when it isn't a test move and the piece jumps" do
+      it 'changes @jump_move' do
+        move = [2, 6]
+        expect { pawn_move.move_piece(move) }.to change { pawn_move.jump_move }.to(true)
       end
     end
   end

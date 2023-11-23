@@ -58,4 +58,70 @@ describe King do
       expect { king_moves.update_moves(pieces) }.to change { king_moves.moves }.to(moves)
     end
   end
+
+  describe '#castling' do
+    subject(:king_castle) { described_class.new([5, 1], :w) }
+
+    context 'when the king has moved before' do
+      before do
+        king_castle.instance_variable_set(:@first_move, false)
+      end
+
+      it 'returns without calling anything' do
+        expect(king_castle.castling(king_castle)).to be_zero
+      end
+    end
+  end
+
+  # No tests for #long_castling because it is the same as short_castling
+
+  describe '#short_castling' do
+    subject(:king_castle) { described_class.new([5, 1], :w) }
+
+    context 'when there is no rook' do
+      it "doesn't add the move" do
+        pieces = [king_castle]
+        expect { king_castle.short_castling(pieces) }.to_not(change { king_castle.moves })
+      end
+    end
+
+    context 'when the rook has moved before' do
+      let(:rook_castle) { double('rook', coordinates: [8, 1], color: :w, first_move: false) }
+
+      it "doesn't add the move" do
+        pieces = [king_castle, rook_castle]
+        expect { king_castle.short_castling(pieces) }.to_not(change { king_castle.moves })
+      end
+    end
+
+    context "when the rook hasn't moved before" do
+      let(:rook_castle) { double('rook', coordinates: [8, 1], color: :w, first_move: true) }
+
+      it 'adds the move' do
+        pieces = [king_castle, rook_castle]
+        new_moves = [[7, 1]]
+        expect { king_castle.short_castling(pieces) }.to change { king_castle.moves }.to(new_moves)
+      end
+    end
+
+    context 'when there is a piece in the way' do
+      let(:rook_castle) { double('rook', coordinates: [8, 1], color: :w, first_move: false) }
+      let(:obstacle_piece) { double('knight', coordinates: [7, 1], color: :w) }
+
+      it "doesn't add the move" do
+        pieces = [king_castle, rook_castle, obstacle_piece]
+        expect { king_castle.short_castling(pieces) }.to_not(change { king_castle.moves })
+      end
+    end
+
+    context 'when there is an attacking piece in the way' do
+      let(:rook_castle) { double('rook', coordinates: [8, 1], color: :w, first_move: true) }
+      let(:attacking_piece) { double('bishop', coordinates: [8, 3], color: :b, moves: [[6, 1]]) }
+
+      it "doesn't add the move" do
+        pieces = [king_castle, rook_castle, attacking_piece]
+        expect { king_castle.short_castling(pieces) }.to_not(change { king_castle.moves })
+      end
+    end
+  end
 end
