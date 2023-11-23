@@ -120,7 +120,7 @@ end
 
 def get_save_to_load(saves)
   loop do
-    print 'Enter save name: '
+    print 'Enter save number: '
 
     choice = gets.chomp.to_i
 
