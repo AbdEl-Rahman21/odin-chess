@@ -7,11 +7,10 @@ require_relative './player'
 # Class for the computer player
 class Human < Player
   COMMANDS = %w[save back resign].freeze
+  PROMOTABLE = %w[r k b q].freeze
 
   def get_choice(step)
     loop do
-      print "#{print_color}, "
-
       print_step(step)
 
       choice = gets.chomp.downcase
@@ -22,12 +21,26 @@ class Human < Player
     end
   end
 
-  def print_step(step)
-    if step == 1
-      print 'enter piece to move: '
-    else
-      print 'move piece to: '
+  def promote(piece, choice = '')
+    loop do
+      print "\nRook (R) - Knight (K) - Bishop (B) - Queen (Q)\nChoose a piece to promote to: "
+
+      choice = gets.chomp.downcase
+
+      break if PROMOTABLE.include?(choice)
+
+      puts Rainbow('Invalid choice!').color(:red)
     end
+
+    handle_promotion(choice, piece)
+
+    @pieces.delete(piece)
+  end
+
+  private
+
+  def print_step(step)
+    print "#{print_color}, #{step == 1 ? 'enter piece to move: ' : 'move piece to: '}"
   end
 
   def valid_choice?(choice)
@@ -38,27 +51,8 @@ class Human < Player
   end
 
   def print_error_massage
-    puts Rainbow('Invalid choice.').color(:red)
+    puts Rainbow('Invalid choice!').color(:red)
     puts Rainbow('Examples: e4, a1, h8.').color(:blue)
-  end
-
-  def promote(piece)
-    choice = ''
-    promotable = %w[r k b q]
-
-    loop do
-      print "\nRook (R) - Knight (K) - Bishop (B) - Queen (Q)\nChoose a piece to promote to: "
-
-      choice = gets.chomp.downcase
-
-      break if promotable.include?(choice)
-
-      puts Rainbow('Invalid choice!').color(:red)
-    end
-
-    handle_promotion(choice, piece)
-
-    @pieces.delete(piece)
   end
 
   def handle_promotion(choice, piece)

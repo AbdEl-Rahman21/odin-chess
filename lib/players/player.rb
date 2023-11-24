@@ -30,7 +30,6 @@ class Player
                Pawn.new([5, j], @color), Pawn.new([6, j], @color), Pawn.new([7, j], @color), Pawn.new([8, j], @color),
                Rook.new([1, i], @color), Knight.new([2, i], @color), Bishop.new([3, i], @color), Queen.new([4, i], @color),
                Rook.new([8, i], @color), Knight.new([7, i], @color), Bishop.new([6, i], @color), King.new([5, i], @color)]
-
     # rubocop:enable Layout/LineLength
   end
 

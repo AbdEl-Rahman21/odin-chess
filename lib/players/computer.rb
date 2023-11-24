@@ -18,6 +18,14 @@ class Computer < Player
     end
   end
 
+  def promote(piece)
+    @pieces.unshift(Queen.new(piece.coordinates, @color))
+
+    @pieces.delete(piece)
+  end
+
+  private
+
   def select_piece
     @chosen_piece = @pieces.filter { |piece| !piece.moves.empty? }.sample
 
@@ -28,11 +36,5 @@ class Computer < Player
     move = @chosen_piece.moves.sample
 
     [(move[0] + 9).to_s(36), move[1].to_s].join
-  end
-
-  def promote(piece)
-    @pieces.unshift(Queen.new(piece.coordinates, @color))
-
-    @pieces.delete(piece)
   end
 end

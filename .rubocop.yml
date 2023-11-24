@@ -6,3 +6,4 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/*'
     - 'spec/pieces_spec/*'
+    - 'spec/players_spec/*'
